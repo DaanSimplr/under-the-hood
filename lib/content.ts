@@ -9,6 +9,7 @@ import matter from "gray-matter";
 import type { z } from "zod";
 import { getSlotIds } from "./assets";
 import { ASSEMBLY_IDS } from "./assemblies";
+import type { DiagramPart } from "./diagram";
 import {
   glossarySchema,
   hotspotsSchema,
@@ -332,6 +333,23 @@ export function getTeardownsForSystem(id: string): Teardown[] {
 }
 export function getQuiz(systemId: string): Quiz | undefined {
   return getQuizzes().find((q) => q.systemId === systemId);
+}
+
+/** Minimal part data for the car diagram, with hotspot coordinates. */
+export function getDiagramParts(): DiagramPart[] {
+  const hotspots = getHotspots();
+  return getParts().map((p) => {
+    const h = hotspots.find((x) => x.id === p.location)!;
+    return {
+      id: p.id,
+      name: p.name,
+      systemId: p.systemId,
+      summary: p.summary,
+      connectsTo: p.connectsTo,
+      x: h.x,
+      y: h.y,
+    };
+  });
 }
 
 /** Parts that this part connects to, plus parts that point back at it. */

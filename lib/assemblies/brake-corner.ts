@@ -35,7 +35,7 @@ export const brakeCorner: Assembly = {
       label: "Caliper",
       partId: "brake-caliper",
       removalOrder: 1,
-      explodeOffset: [0.5, 3.0, 0],
+      explodeOffset: [0.5, 2.4, 0],
       labelAt: [0.2, 1.85, 0],
       description:
         "Comes off first: remove the two guide pin bolts and lift it off the pads. It stays attached to its brake hose.",
@@ -66,7 +66,7 @@ export const brakeCorner: Assembly = {
       label: "Outer pad",
       partId: "brake-pads",
       removalOrder: 2,
-      explodeOffset: [0.45, 1.8, 0],
+      explodeOffset: [0.45, 1.45, 0],
       labelAt: [0.3, 0.55, 0.6],
       description:
         "Sits against the outboard face of the disc. Slides out of the bracket once the caliper is off.",
@@ -84,7 +84,7 @@ export const brakeCorner: Assembly = {
       label: "Inner pad",
       partId: "brake-pads",
       removalOrder: 2,
-      explodeOffset: [-0.45, 1.8, 0],
+      explodeOffset: [-0.45, 1.45, 0],
       labelAt: [-0.3, 0.55, 0.6],
       description: "Sits against the inboard face of the disc, pushed by the caliper piston.",
       shapes: [
@@ -100,7 +100,7 @@ export const brakeCorner: Assembly = {
       id: "bracket",
       label: "Caliper bracket",
       removalOrder: 3,
-      explodeOffset: [-0.2, 0.8, 0],
+      explodeOffset: [-0.2, 0.62, 0],
       labelAt: [0, 0.25, -0.75],
       description:
         "Bolted to the steering knuckle. It holds the pads and the caliper's guide pins. Only removed when changing the disc.",
@@ -126,7 +126,7 @@ export const brakeCorner: Assembly = {
       partId: "brake-disc",
       removalOrder: 4,
       explodeOffset: [0.75, 0, 0],
-      labelAt: [0.1, -1.6, 0],
+      labelAt: [0.3, -1.1, 0.8],
       description:
         "Slides off the wheel studs once the caliper and bracket are off. Some have a small retaining screw.",
       shapes: [
