@@ -1,0 +1,30 @@
+{
+  "id": "clutch",
+  "name": "Clutch",
+  "systemId": "drivetrain",
+  "aka": ["clutch kit", "clutch plate", "pressure plate"],
+  "summary": "In a manual car, the clutch connects and disconnects the engine from the gearbox so you can pull away and change gear.",
+  "whatItDoes": "Pressing the clutch pedal separates the engine from the gearbox. That lets the engine keep running while the car is stopped, and lets you change gear without grinding. Releasing the pedal joins them again smoothly.",
+  "howItWorks": "A friction disc sits between the engine's flywheel and a spring-loaded pressure plate. With the pedal up, the springs clamp the disc so the engine and gearbox turn together. Pressing the pedal pushes a release bearing that takes the clamping force away, so the disc can slip free. Automatic cars use a torque converter or automated clutches instead.",
+  "location": "clutch",
+  "connectsTo": ["engine-block", "transmission"],
+  "failureSymptoms": [
+    "Engine revs rise but the car doesn't speed up (slipping)",
+    "The clutch 'bites' very high on the pedal travel",
+    "Grinding or difficulty selecting gears",
+    "Burning smell after hill starts"
+  ],
+  "removalDifficulty": 5,
+  "toolsNeeded": [
+    "Transmission jack",
+    "Clutch alignment tool",
+    "Socket set",
+    "Axle stands",
+    "Torque wrench"
+  ],
+  "safetyNotes": [
+    "The gearbox is heavy. Support it with a transmission jack, never by hand.",
+    "Clutch dust on older cars may contain harmful fibres. Don't blow it off with compressed air; wipe it with a damp cloth."
+  ],
+  "relatedTeardowns": []
+}

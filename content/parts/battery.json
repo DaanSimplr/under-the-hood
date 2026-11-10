@@ -1,0 +1,31 @@
+{
+  "id": "battery",
+  "name": "12-volt battery",
+  "systemId": "electrical",
+  "aka": ["car battery", "starter battery", "12 V battery"],
+  "summary": "Stores electrical energy to start the engine and to run the electronics while the engine is off.",
+  "whatItDoes": "It gives the starter motor the big burst of current it needs, and keeps the car's computers, alarm and clock powered while parked. Once the engine runs, the alternator recharges it. Hybrids and electric cars also have a 12 V battery for their everyday electrics, separate from the high-voltage drive battery.",
+  "howItWorks": "A lead-acid car battery has six cells of about 2 volts each, giving roughly 12.6 V when fully charged. A chemical reaction between lead plates and acid releases current, and charging reverses the reaction. Cars with stop-start often use tougher AGM or EFB batteries.",
+  "location": "battery",
+  "connectsTo": ["alternator", "starter-motor", "spark-plug"],
+  "failureSymptoms": [
+    "Slow cranking, especially on cold mornings",
+    "Clicking but no start",
+    "Dim lights at idle",
+    "White or green crust on the terminals",
+    "Battery warning light"
+  ],
+  "removalDifficulty": 1,
+  "toolsNeeded": [
+    "Spanners or sockets for the terminals and clamp",
+    "Terminal brush",
+    "Battery tester or multimeter"
+  ],
+  "safetyNotes": [
+    "Disconnect the negative (−) terminal first and reconnect it last.",
+    "Batteries can give off explosive hydrogen gas. Keep sparks and flames away.",
+    "Battery acid burns. Wear gloves and eye protection.",
+    "Recycle old batteries at a collection point."
+  ],
+  "relatedTeardowns": ["remove-alternator"]
+}

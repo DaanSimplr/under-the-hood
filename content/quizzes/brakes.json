@@ -1,0 +1,43 @@
+{
+  "systemId": "brakes",
+  "questions": [
+    {
+      "prompt": "Which part do the brake pads squeeze?",
+      "options": ["The wheel hub", "The brake disc", "The tie rod", "The CV joint"],
+      "answerIndex": 1,
+      "explanation": "The pads clamp both faces of the spinning disc. Friction turns the car's movement into heat.",
+      "partId": "brake-disc"
+    },
+    {
+      "prompt": "What pushes the caliper piston out when you press the brake pedal?",
+      "options": ["Air pressure", "Brake fluid under pressure", "A spring", "The alternator"],
+      "answerIndex": 1,
+      "explanation": "The pedal pressurises brake fluid in the lines, and that pressure pushes the caliper's piston against the pad.",
+      "partId": "brake-caliper"
+    },
+    {
+      "prompt": "A high-pitched squeal from a wheel when braking often means…",
+      "options": [
+        "The pad wear indicator is touching the disc",
+        "The tyres are over-inflated",
+        "The battery is low",
+        "The coolant is low"
+      ],
+      "answerIndex": 0,
+      "explanation": "Many pads have a small metal tab that squeals against the disc when the friction material is nearly worn out.",
+      "partId": "brake-pads"
+    },
+    {
+      "prompt": "Why should you never blow brake dust off with compressed air?",
+      "options": [
+        "It damages the disc",
+        "Brake dust is harmful to breathe",
+        "It voids the warranty",
+        "It makes the pads squeal"
+      ],
+      "answerIndex": 1,
+      "explanation": "Blowing it sends fine dust into the air you breathe. Use brake cleaner and a cloth instead.",
+      "partId": "brake-pads"
+    }
+  ]
+}

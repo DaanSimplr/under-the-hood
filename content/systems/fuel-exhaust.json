@@ -1,0 +1,8 @@
+{
+  "id": "fuel-exhaust",
+  "name": "Fuel & exhaust",
+  "summary": "Brings fuel from the tank to the engine, then cleans and quietens the exhaust gases on their way out.",
+  "order": 7,
+  "heroSlot": "system-fuel-exhaust-hero",
+  "partIds": ["fuel-pump", "catalytic-converter", "muffler"]
+}

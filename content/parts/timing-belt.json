@@ -1,0 +1,30 @@
+{
+  "id": "timing-belt",
+  "name": "Timing belt",
+  "systemId": "engine",
+  "aka": ["cam belt", "timing chain"],
+  "summary": "A toothed belt (or a chain, on some engines) that keeps the crankshaft and camshafts turning in step.",
+  "whatItDoes": "The valves that let air in and exhaust out must open at exactly the right moment compared to the pistons. The timing belt links the crankshaft at the bottom of the engine to the camshafts at the top so they always stay in sync.",
+  "howItWorks": "Teeth on the belt mesh with toothed pulleys on the crankshaft and camshafts. In a four-stroke engine the camshafts turn at half the crankshaft's speed. A tensioner keeps the belt tight. On many engines the same belt also drives the water pump.",
+  "location": "timing-belt",
+  "connectsTo": ["engine-block", "water-pump"],
+  "failureSymptoms": [
+    "Ticking or whining from the end of the engine where the belt runs",
+    "The engine won't start, or stops suddenly (belt snapped)",
+    "Cracks, shiny glazing or missing teeth when inspected",
+    "On 'interference' engines a snapped belt can let pistons hit valves and badly damage the engine"
+  ],
+  "removalDifficulty": 4,
+  "toolsNeeded": [
+    "Engine-specific timing locking tools",
+    "Socket set",
+    "Torque wrench",
+    "Service manual"
+  ],
+  "safetyNotes": [
+    "Replace it at the interval in your service schedule. Don't wait for symptoms.",
+    "Getting the timing wrong can destroy the engine. Use the correct locking tools for your engine."
+  ],
+  "relatedTeardowns": [],
+  "todo": ["// TODO verify: replacement intervals vary widely by engine, so none is stated"]
+}

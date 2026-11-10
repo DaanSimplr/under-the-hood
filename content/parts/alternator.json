@@ -1,0 +1,34 @@
+{
+  "id": "alternator",
+  "name": "Alternator",
+  "systemId": "electrical",
+  "aka": ["generator", "dynamo"],
+  "summary": "A small generator, driven by the engine, that charges the battery and powers the electrics while you drive.",
+  "whatItDoes": "Once the engine is running, the alternator supplies the car's electricity and tops the battery back up.",
+  "howItWorks": "The accessory belt spins the alternator's pulley. Inside, a spinning electromagnet (the rotor) turns within fixed copper windings (the stator) and makes alternating current. Diodes turn that into direct current, and a voltage regulator keeps the output at roughly 13.5 to 14.5 volts.",
+  "location": "alternator",
+  "connectsTo": ["battery", "engine-block", "starter-motor"],
+  "failureSymptoms": [
+    "Battery warning light while driving",
+    "The battery keeps going flat",
+    "Lights dimming or flickering",
+    "Whining or grinding from the alternator",
+    "Burning smell (slipping belt or overheating)"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": [
+    "Socket set",
+    "Belt tensioner tool or long breaker bar",
+    "Torque wrench",
+    "Multimeter",
+    "Phone camera (for the belt routing)"
+  ],
+  "safetyNotes": [
+    "Disconnect the battery first. The alternator's main output wire is live all the time.",
+    "Keep hands clear of the belt and fan. Never work on the belt with the engine running."
+  ],
+  "relatedTeardowns": ["remove-alternator"],
+  "todo": [
+    "// TODO verify: 13.5–14.5 V is typical; 'smart charging' systems can vary outside this range"
+  ]
+}

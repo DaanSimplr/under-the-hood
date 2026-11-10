@@ -1,0 +1,43 @@
+{
+  "systemId": "fuel-exhaust",
+  "questions": [
+    {
+      "prompt": "Where is the fuel pump usually found in a modern car?",
+      "options": [
+        "Inside the fuel tank",
+        "In the exhaust",
+        "Behind the dashboard",
+        "In the gearbox"
+      ],
+      "answerIndex": 0,
+      "explanation": "Most modern cars use an electric pump inside the tank, where the fuel keeps it cool.",
+      "partId": "fuel-pump"
+    },
+    {
+      "prompt": "What does the catalytic converter do?",
+      "options": [
+        "Makes the exhaust quieter",
+        "Turns harmful exhaust gases into less harmful ones",
+        "Pumps fuel to the engine",
+        "Cools the engine"
+      ],
+      "answerIndex": 1,
+      "explanation": "Precious metals inside help convert carbon monoxide, unburned fuel and nitrogen oxides into less harmful gases.",
+      "partId": "catalytic-converter"
+    },
+    {
+      "prompt": "Which gas in exhaust fumes makes running an engine in a closed garage deadly?",
+      "options": ["Carbon monoxide", "Nitrogen", "Water vapour", "Helium"],
+      "answerIndex": 0,
+      "explanation": "Carbon monoxide has no colour or smell and stops your blood carrying oxygen.",
+      "partId": "muffler"
+    },
+    {
+      "prompt": "What is the muffler's main job?",
+      "options": ["Reduce exhaust noise", "Clean the exhaust", "Store fuel", "Cool the engine"],
+      "answerIndex": 0,
+      "explanation": "Chambers and packing inside the muffler break up the loud exhaust pulses.",
+      "partId": "muffler"
+    }
+  ]
+}

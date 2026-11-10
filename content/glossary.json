@@ -1,0 +1,228 @@
+[
+  {
+    "id": "abs",
+    "term": "ABS",
+    "aka": ["anti-lock brakes", "anti-lock braking system"],
+    "definition": "Anti-lock braking system. Sensors watch each wheel's speed, and if a wheel starts to lock up under hard braking, ABS rapidly eases and reapplies that brake so you can still steer."
+  },
+  {
+    "id": "accessory-belt",
+    "term": "Accessory belt",
+    "aka": ["serpentine belt", "drive belt", "auxiliary belt"],
+    "definition": "A ribbed rubber belt on the front or side of the engine that drives the alternator and often the air-conditioning compressor, power steering pump or water pump. Not the same as the timing belt."
+  },
+  {
+    "id": "airbag",
+    "term": "Airbag",
+    "aka": ["SRS"],
+    "definition": "A bag that inflates in a fraction of a second in a crash to cushion the people inside. SRS (supplemental restraint system) is the name for the whole airbag and seatbelt-tensioner system.",
+    "partId": "airbag-module"
+  },
+  {
+    "id": "alternator",
+    "term": "Alternator",
+    "aka": [],
+    "definition": "The engine-driven generator that makes electricity while the engine runs and recharges the 12 V battery.",
+    "partId": "alternator"
+  },
+  {
+    "id": "axle-stand",
+    "term": "Axle stand",
+    "aka": ["jack stand", "jack stands", "axle stands"],
+    "definition": "A sturdy, adjustable stand that holds a raised car safely. A jack lifts the car; axle stands hold it up while you work."
+  },
+  {
+    "id": "ball-joint",
+    "term": "Ball joint",
+    "aka": [],
+    "definition": "A ball-and-socket pivot, like a hip joint, that connects suspension arms to the steering knuckle so the wheel can move up and down and steer."
+  },
+  {
+    "id": "brake-fluid",
+    "term": "Brake fluid",
+    "aka": [],
+    "definition": "The liquid that carries pressure from the brake pedal to the calipers. It absorbs water over time, which is why it needs changing every few years. It also damages paint."
+  },
+  {
+    "id": "caliper",
+    "term": "Caliper",
+    "aka": [],
+    "definition": "The clamp at each wheel that squeezes the brake pads against the disc.",
+    "partId": "brake-caliper"
+  },
+  {
+    "id": "camshaft",
+    "term": "Camshaft",
+    "aka": ["cam"],
+    "definition": "A shaft with egg-shaped lobes that push the engine's valves open at the right moments. It is driven from the crankshaft by the timing belt or chain."
+  },
+  {
+    "id": "catalytic-converter",
+    "term": "Catalytic converter",
+    "aka": [],
+    "definition": "The part of the exhaust that chemically turns the most harmful gases into less harmful ones.",
+    "partId": "catalytic-converter"
+  },
+  {
+    "id": "combustion",
+    "term": "Combustion",
+    "aka": [],
+    "definition": "Burning. In an engine, the fuel and air burn quickly inside the cylinder, and the expanding gas pushes the piston down."
+  },
+  {
+    "id": "coolant",
+    "term": "Coolant",
+    "aka": ["antifreeze"],
+    "definition": "The liquid that carries heat from the engine to the radiator. It is a mix of water and antifreeze, which stops freezing in winter, raises the boiling point and prevents corrosion. It is poisonous."
+  },
+  {
+    "id": "crankshaft",
+    "term": "Crankshaft",
+    "aka": ["crank"],
+    "definition": "The main rotating shaft in the bottom of the engine. The pistons push on it through connecting rods, turning their up-and-down motion into rotation."
+  },
+  {
+    "id": "crumple-zone",
+    "term": "Crumple zone",
+    "aka": ["crumple zones"],
+    "definition": "Parts of the body at the front and rear designed to fold up in a controlled way in a crash, absorbing energy so less of it reaches the people inside."
+  },
+  {
+    "id": "cv-joint",
+    "term": "CV joint",
+    "aka": ["constant-velocity joint"],
+    "definition": "A flexible joint on the end of a drive axle that lets it bend while still turning the wheel at an even speed.",
+    "partId": "cv-axle"
+  },
+  {
+    "id": "cylinder",
+    "term": "Cylinder",
+    "aka": [],
+    "definition": "A round chamber in the engine block where a piston moves up and down and the fuel burns."
+  },
+  {
+    "id": "differential",
+    "term": "Differential",
+    "aka": ["diff"],
+    "definition": "A gear set that lets the left and right wheels turn at different speeds, which they must do in a corner, while both still receive power."
+  },
+  {
+    "id": "ecu",
+    "term": "ECU",
+    "aka": ["engine control unit", "engine computer"],
+    "definition": "The engine's computer. It reads sensors and controls fuel injection, ignition timing and more. Cars have many other control units too."
+  },
+  {
+    "id": "electric-parking-brake",
+    "term": "Electric parking brake",
+    "aka": ["EPB"],
+    "definition": "A parking brake applied by small electric motors on the rear calipers instead of a cable. It usually has to be put into a service mode before rear brake work."
+  },
+  {
+    "id": "gasket",
+    "term": "Gasket",
+    "aka": [],
+    "definition": "A seal squeezed between two metal parts to stop oil, coolant or gas leaking out. Many gaskets are single-use."
+  },
+  {
+    "id": "ground",
+    "term": "Ground (electrical)",
+    "aka": ["earth strap", "ground strap", "earth lead"],
+    "definition": "The return path for electricity, usually through the car's metal body back to the battery's negative terminal."
+  },
+  {
+    "id": "high-voltage",
+    "term": "High-voltage system",
+    "aka": ["HV system", "orange cables"],
+    "definition": "The drive battery, motor and cabling of a hybrid or electric car, running at hundreds of volts. Its cables are orange. Only trained people with insulated tools should work on it."
+  },
+  {
+    "id": "lug-nut",
+    "term": "Wheel nut",
+    "aka": ["lug nut", "lug nuts", "wheel bolt", "wheel bolts"],
+    "definition": "The nuts or bolts that hold the wheel onto the hub. They must be tightened to the correct torque in a star pattern."
+  },
+  {
+    "id": "multimeter",
+    "term": "Multimeter",
+    "aka": [],
+    "definition": "A handheld meter that measures voltage, current and resistance. A basic one is enough to check a battery and charging system."
+  },
+  {
+    "id": "penetrating-oil",
+    "term": "Penetrating oil",
+    "aka": [],
+    "definition": "A thin oil that creeps into rusty threads to help free seized bolts. Spray it on and give it time to work."
+  },
+  {
+    "id": "piston",
+    "term": "Piston",
+    "aka": [],
+    "definition": "A metal plug that slides up and down inside a cylinder. In the engine it is pushed by burning fuel; in a brake caliper it is pushed by brake fluid."
+  },
+  {
+    "id": "rack-and-pinion",
+    "term": "Rack and pinion",
+    "aka": [],
+    "definition": "The most common steering gear: a small gear (pinion) on the steering column moves a toothed bar (rack) sideways to steer the wheels.",
+    "partId": "steering-rack"
+  },
+  {
+    "id": "rotor",
+    "term": "Rotor",
+    "aka": ["brake rotor"],
+    "definition": "Another name for the brake disc, common in North America.",
+    "partId": "brake-disc"
+  },
+  {
+    "id": "steering-knuckle",
+    "term": "Steering knuckle",
+    "aka": ["knuckle", "upright"],
+    "definition": "The sturdy casting at each wheel that holds the hub bearing and connects to the suspension arms, strut and steering. The brake caliper bracket bolts to it."
+  },
+  {
+    "id": "strut",
+    "term": "Strut",
+    "aka": ["MacPherson strut", "damper", "shock absorber"],
+    "definition": "A suspension unit that combines a spring and a shock absorber and also guides the wheel.",
+    "partId": "strut"
+  },
+  {
+    "id": "subframe",
+    "term": "Subframe",
+    "aka": [],
+    "definition": "A separate frame bolted under the car that carries the engine mounts, steering rack and suspension arms.",
+    "partId": "subframe"
+  },
+  {
+    "id": "tensioner",
+    "term": "Tensioner",
+    "aka": ["belt tensioner"],
+    "definition": "A spring-loaded or adjustable pulley that keeps a belt at the right tightness. Releasing it lets you slip the belt off."
+  },
+  {
+    "id": "thermostat",
+    "term": "Thermostat",
+    "aka": [],
+    "definition": "A valve in the cooling system that opens when the engine is warm enough, letting coolant flow to the radiator.",
+    "partId": "thermostat"
+  },
+  {
+    "id": "torque",
+    "term": "Torque",
+    "aka": [],
+    "definition": "Twisting force. For bolts it is how tight they are, measured in newton-metres (N·m). For engines it is how hard they can turn the wheels."
+  },
+  {
+    "id": "torque-wrench",
+    "term": "Torque wrench",
+    "aka": [],
+    "definition": "A wrench that clicks or shows a reading when a bolt reaches a set tightness. Essential for wheels, brakes and engine parts."
+  },
+  {
+    "id": "unibody",
+    "term": "Unibody",
+    "aka": ["monocoque"],
+    "definition": "A car body where the body shell itself is the main structure, instead of a body sitting on a separate ladder frame. Almost all modern cars are built this way."
+  }
+]

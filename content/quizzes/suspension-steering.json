@@ -1,0 +1,43 @@
+{
+  "systemId": "suspension-steering",
+  "questions": [
+    {
+      "prompt": "What does the shock absorber (damper) do?",
+      "options": [
+        "Carries the car's weight",
+        "Stops the car bouncing after a bump",
+        "Steers the wheels",
+        "Drives the wheels"
+      ],
+      "answerIndex": 1,
+      "explanation": "The spring carries the weight; the damper slows the spring's movement so the car settles instead of bouncing.",
+      "partId": "strut"
+    },
+    {
+      "prompt": "What turns the steering wheel's rotation into side-to-side movement?",
+      "options": ["The rack and pinion", "The control arm", "The wheel bearing", "The subframe"],
+      "answerIndex": 0,
+      "explanation": "The pinion gear on the steering column slides the toothed rack left and right, and tie rods push the wheels.",
+      "partId": "steering-rack"
+    },
+    {
+      "prompt": "A hum that gets louder with speed and changes when you turn often points to…",
+      "options": ["A worn wheel bearing", "Low brake fluid", "A loose bumper", "A weak battery"],
+      "answerIndex": 0,
+      "explanation": "Turning shifts weight onto or off the worn bearing, which changes the noise. That is a classic bearing clue.",
+      "partId": "wheel-hub"
+    },
+    {
+      "prompt": "Why do you need a spring compressor to take a strut apart?",
+      "options": [
+        "The spring stores a lot of energy and could fly off",
+        "The strut is glued together",
+        "It measures the spring",
+        "You don't need one"
+      ],
+      "answerIndex": 0,
+      "explanation": "Even with the strut off the car, the spring is still compressed. The compressor holds it safely while you undo the top nut.",
+      "partId": "strut"
+    }
+  ]
+}

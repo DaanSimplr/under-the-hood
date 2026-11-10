@@ -1,0 +1,148 @@
+---
+slug: replace-front-brake-pads
+title: Replace front brake pads
+summary: Swap worn front pads on a typical car with sliding (floating) calipers. A classic first job that teaches how a brake corner fits together.
+systemId: brakes
+partIds: [brake-pads, brake-caliper, brake-disc, wheel-hub]
+difficulty: 2
+timeEstimate: 1–2 hours for both sides
+heroSlot: workshop-ambient-loop
+tools:
+  - Wheel brace or breaker bar with the right socket
+  - Trolley jack and two axle stands
+  - Wheel chocks
+  - Socket set (the caliper bolts are often hex or Torx)
+  - Torque wrench
+  - Brake piston tool or a large G-clamp
+  - Brake cleaner and lint-free cloths
+  - Wire brush
+  - Brake grease (high-temperature, for slides and contact points only)
+  - Gloves, eye protection and a dust mask
+  - A hook or zip tie to hang the caliper
+safety:
+  - topic: jack-stands
+    note: You will take a wheel off. The car must sit on axle stands, never only on the jack.
+  - topic: hot-fluids
+    note: Discs and calipers can be hot enough to burn after a drive. Brake fluid irritates skin and eyes and strips paint.
+  - topic: brake-dust
+  - topic: battery-disconnect
+    note: Not needed for front pads on most cars. Cars with an electric parking brake need it put into service mode before any rear brake work.
+  - topic: airbags
+    note: This job does not touch any airbag parts. Keep clear of yellow connectors if you are working near the steering column.
+  - topic: ev-high-voltage
+    note: Hybrids and EVs use ordinary hydraulic pads and calipers, but some hybrids can pressurise the brakes when a door opens. Check the manual for a brake service mode, and never touch orange cables.
+---
+
+{/* TODO verify: "some hybrids pressurise the brakes when a door opens" applies to certain electronically controlled brake systems; confirm per model. */}
+
+These steps cover a typical front axle with a single-piston sliding <Term id="caliper">caliper</Term>. Your car may differ, so read along with the service manual for your model. Always do both sides of an axle.
+
+<Step id="prepare" title="Park, chock and loosen the wheel nuts">
+
+Park on hard, level ground. Put the car in gear (or Park), apply the parking brake and chock both rear wheels.
+
+With the wheel still on the ground, loosen each <Term id="lug-nut">wheel nut</Term> about half a turn. Don't remove them yet: the car's weight stops the wheel from turning while you do this.
+
+</Step>
+
+<Step id="lift" title="Lift the car and put it on axle stands">
+
+Jack the car at the lifting point shown in the manual. Put an <Term id="axle-stand">axle stand</Term> under the support point next to it and lower the car onto the stand. Give the car a firm push to check it is stable, then remove the wheel nuts and the wheel.
+
+<SafetyCallout topic="jack-stands" />
+
+</Step>
+
+<Step id="inspect" title="Look before you take anything apart">
+
+Take a photo of the whole brake corner. It is your reference for how the clips and pads go back.
+
+Look at the pads through the caliper window: how much friction material is left? Check the disc for deep grooves, a rusty lip or cracks. Note the brake fluid level in the reservoir under the bonnet, because pushing the piston back will raise it.
+
+<DiagramFocus part="brake-caliper" />
+
+</Step>
+
+<Step id="remove-caliper" title="Unbolt the caliper and hang it up">
+
+On the back of the caliper are two guide pin bolts. Hold the guide pin with a spanner if it spins, remove both bolts and lift the caliper off the pads.
+
+Hang the caliper from the spring or knuckle with a hook or zip tie. Do not let it hang by the rubber hose, and do not press the brake pedal while the caliper is off.
+
+<TorqueSpec fastener="Caliper guide pin bolts" />
+
+</Step>
+
+<Step id="remove-pads" title="Take out the old pads and clips">
+
+Slide both pads out of the caliper bracket. Note which pad has the wear indicator tab or sensor, and which way the shims face. Remove the anti-rattle clips from the bracket.
+
+<SafetyCallout topic="brake-dust" />
+
+<DiagramFocus part="brake-pads" />
+
+</Step>
+
+<Step id="check-disc" title="Check the disc">
+
+Measure the disc thickness at a few points with a vernier caliper or micrometer, and compare it with the minimum thickness stamped on the disc's edge or hat. If it is below the minimum, badly grooved or cracked, replace the discs as a pair. That means removing the caliper bracket too, which is outside this guide.
+
+The 3D view below shows the order things come apart: caliper, pads, bracket, then disc.
+
+<ExplodedView assembly="brake-corner" />
+
+</Step>
+
+<Step id="clean" title="Clean the bracket and grease the slides">
+
+Clean the pad contact points on the bracket with a wire brush and brake cleaner until you see bare metal. Fit the new anti-rattle clips that came with the pads.
+
+Pull out the caliper guide pins, wipe off the old grease, and apply a thin coat of brake grease. Put a light smear on the pad backing plates where they touch the clips. Keep grease off the friction material and the disc.
+
+</Step>
+
+<Step id="push-piston" title="Push the caliper piston back">
+
+The new pads are thicker, so the <Term id="piston">piston</Term> must go back into the caliper. Push it in slowly and squarely with a piston tool or G-clamp, using the old pad to protect the piston face. Watch the reservoir: if fluid gets close to the top, remove a little with a clean syringe.
+
+<SafetyCallout topic="hot-fluids">
+Brake fluid irritates skin and eyes and strips paint. Wear gloves and eye protection, cover painted surfaces with a cloth, and rinse any splashes with plenty of water.
+</SafetyCallout>
+
+Some rear calipers have a screw-in piston for the parking brake and need a wind-back tool instead. Don't force them.
+
+</Step>
+
+<Step id="fit-pads" title="Fit the new pads and refit the caliper">
+
+Slide the new pads into the clips, with the wear indicator in the same position as on the old pad. Lower the caliper over the pads, refit the guide pin bolts and tighten them to the figure in the manual with a <Term id="torque-wrench">torque wrench</Term>.
+
+<TorqueSpec fastener="Caliper guide pin bolts" />
+
+</Step>
+
+<Step id="refit-wheel" title="Refit the wheel and lower the car">
+
+Fit the wheel and run the nuts on by hand. Raise the car off the stand, remove the stand, and lower it to the ground. Tighten the nuts in a star pattern to the correct <Term id="torque">torque</Term>.
+
+<TorqueSpec fastener="Wheel nuts or bolts" range="often somewhere around 80–140 N·m on passenger cars" />
+
+{/* TODO verify: wheel nut torque range is a broad typical spread; never use it instead of the manual. */}
+
+</Step>
+
+<Step id="other-side" title="Do the other side, then pump the pedal">
+
+Repeat every step on the other side of the axle. Then, before you move the car, pump the brake pedal until it feels firm. This pushes the pistons back out to the pads. Check the fluid level and top up to the MAX line with the fluid type shown on the cap.
+
+</Step>
+
+<Step id="bed-in" title="Bed in the new pads">
+
+New pads need bedding in to grip well. Follow the pad maker's instructions. A common method is several moderate stops from a medium speed on a quiet road, without coming to a full stop and holding the brake. Avoid very hard braking for the first stretch of driving.
+
+{/* TODO verify: bedding-in procedures differ between pad makers; the text keeps it generic. */}
+
+If the pedal feels soft, the car pulls to one side, or you hear grinding, stop and get the brakes checked.
+
+</Step>

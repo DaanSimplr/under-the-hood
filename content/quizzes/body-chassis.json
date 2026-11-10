@@ -1,0 +1,52 @@
+{
+  "systemId": "body-chassis",
+  "questions": [
+    {
+      "prompt": "What is a unibody?",
+      "options": [
+        "A body that is also the car's main structure",
+        "A car with one door",
+        "A type of engine",
+        "A gearbox layout"
+      ],
+      "answerIndex": 0,
+      "explanation": "In a unibody (monocoque) car, the body shell carries the loads. There is no separate ladder frame underneath."
+    },
+    {
+      "prompt": "What does a subframe carry?",
+      "options": [
+        "Heavy parts like the engine mounts, steering rack and suspension arms",
+        "Only the seats",
+        "The fuel",
+        "The airbags"
+      ],
+      "answerIndex": 0,
+      "explanation": "Subframes give heavily loaded parts a stiff mounting point and spread their forces into the body.",
+      "partId": "subframe"
+    },
+    {
+      "prompt": "Where is the bumper beam?",
+      "options": [
+        "Behind the plastic bumper cover",
+        "Inside the engine",
+        "Under the rear seat",
+        "In the steering wheel"
+      ],
+      "answerIndex": 0,
+      "explanation": "The plastic cover is mostly for looks and aerodynamics. The metal beam behind it does the structural work.",
+      "partId": "bumper-beam"
+    },
+    {
+      "prompt": "Before working near an airbag, you should…",
+      "options": [
+        "Disconnect the battery and wait the time given in the manual",
+        "Test the wiring with a test light",
+        "Unplug the yellow connector with the ignition on",
+        "Nothing special"
+      ],
+      "answerIndex": 0,
+      "explanation": "Airbags can deploy with great force. Disconnecting the battery and waiting lets the system's stored energy drain away.",
+      "partId": "airbag-module"
+    }
+  ]
+}

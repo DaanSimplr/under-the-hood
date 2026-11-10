@@ -1,0 +1,121 @@
+---
+slug: remove-alternator
+title: Remove the alternator
+summary: Test the charging system, then take out a belt-driven alternator on a typical petrol or diesel car. Access varies a lot between cars, but the order of work is the same.
+systemId: electrical
+partIds: [alternator, battery, engine-block]
+difficulty: 3
+timeEstimate: 1–3 hours, depending on access
+heroSlot: workshop-ambient-loop
+tools:
+  - Multimeter
+  - Socket set with extensions
+  - Spanners for the battery terminals
+  - Belt tensioner tool or a long breaker bar
+  - Torque wrench
+  - Phone camera, for the belt routing
+  - Plastic trim tools, for engine covers
+  - Gloves and eye protection
+safety:
+  - topic: battery-disconnect
+    note: The alternator's main output cable is connected straight to the battery and is live all the time, even with the key out.
+  - topic: hot-fluids
+    note: Let the engine cool down first. The exhaust manifold and coolant hoses near the alternator stay hot for a long time.
+  - topic: jack-stands
+    note: On some cars the alternator comes out from below. If you need to raise the car, support it on axle stands.
+  - topic: airbags
+    note: No airbag parts are involved. Disconnecting the battery also keeps the airbag circuits safe while you work.
+  - topic: ev-high-voltage
+    note: Many hybrids and all EVs have no belt-driven alternator. If the car has orange high-voltage cables, stop. This guide is only for petrol and diesel cars with a 12 V alternator.
+  - topic: spring-tension
+    note: The belt tensioner is strongly sprung. Release it slowly and keep your fingers out from between the belt and pulleys.
+---
+
+An <Term id="alternator">alternator</Term> can last for many years, so first make sure it really is the problem. These steps fit most front-engined cars with an <Term id="accessory-belt">accessory belt</Term>. Check the service manual for your car's access route.
+
+<Step id="confirm" title="Confirm it really is the alternator">
+
+Set a <Term id="multimeter">multimeter</Term> to DC volts and measure across the battery terminals.
+
+- **Engine off** (car parked for an hour): a healthy, charged battery reads about 12.6 V.
+- **Engine running**: a working charging system usually reads about 13.5–14.5 V.
+
+If the running voltage stays near the engine-off value, the alternator is not charging. Before blaming it, check the belt is present and tight, the battery terminals are clean and tight, and the main fuse for the charging circuit is intact.
+
+{/* TODO verify: voltage figures are typical; some 'smart charging' systems deliberately run outside this range. */}
+
+<DiagramFocus part="alternator" />
+
+</Step>
+
+<Step id="disconnect-battery" title="Disconnect the battery">
+
+Switch everything off and remove the key. Undo the negative (−) terminal first and tuck the cable away so it can't touch the post again.
+
+<SafetyCallout topic="battery-disconnect" />
+
+<DiagramFocus part="battery" />
+
+</Step>
+
+<Step id="access" title="Make room to work">
+
+Remove whatever is in the way: plastic engine covers, the air intake pipe, sometimes a wheel arch liner. Put bolts in labelled bags or a muffin tray as you go. If you need to go underneath, raise the car and support it on axle stands.
+
+</Step>
+
+<Step id="photo-belt" title="Photograph the belt routing">
+
+Take clear photos of how the belt runs around every pulley. Many cars also have a routing sticker under the bonnet. Getting the routing wrong can make the belt run backwards or jump off.
+
+</Step>
+
+<Step id="release-belt" title="Release the belt tension">
+
+Find the <Term id="tensioner">tensioner</Term>: a pulley on a spring-loaded arm. Fit the tensioner tool or a breaker bar on its bolt head or square hole, and lever the arm against its spring. Slip the belt off the alternator pulley, then let the arm back slowly.
+
+<SafetyCallout topic="spring-tension" />
+
+</Step>
+
+<Step id="unplug" title="Unplug the wiring">
+
+Pull back the rubber boot over the main output terminal (often marked B+) and remove its nut and cable. Unclip the smaller connector plug. Check the cable ends for corrosion or heat damage while you are there.
+
+</Step>
+
+<Step id="unbolt" title="Remove the mounting bolts and lift it out">
+
+Most alternators have two or three mounting bolts. Some have a sliding sleeve that grips the bolt; tap the bracket gently if the alternator won't come free. Support the alternator as the last bolt comes out. It is heavier than it looks.
+
+</Step>
+
+<Step id="compare" title="Compare the old and new alternator">
+
+Put them side by side. Check that the mounting ears, connector, output terminal and pulley match. Some alternators use a freewheeling pulley that looks different from a solid one and may need a special tool.
+
+</Step>
+
+<Step id="refit" title="Refit it in reverse order">
+
+Fit the new alternator and run all the bolts in by hand before tightening any of them. Tighten the mounting bolts and the output terminal nut to the figures in the manual. Don't over-tighten the output nut; the stud can snap.
+
+<TorqueSpec fastener="Alternator mounting bolts" />
+
+<TorqueSpec fastener="Output (B+) terminal nut" />
+
+</Step>
+
+<Step id="refit-belt" title="Refit the belt and check its path">
+
+Lever the tensioner back and route the belt using your photos. Check that every rib sits in the pulley grooves. The belt should not hang over any pulley edge.
+
+</Step>
+
+<Step id="reconnect-test" title="Reconnect the battery and test">
+
+Refit anything you removed for access. Reconnect the battery negative last. Start the engine, check the battery warning light goes out, and measure the running voltage again. It should now be about 13.5–14.5 V.
+
+You may need to reset the clock, radio and electric window positions.
+
+</Step>

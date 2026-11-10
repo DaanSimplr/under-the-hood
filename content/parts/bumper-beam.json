@@ -1,0 +1,23 @@
+{
+  "id": "bumper-beam",
+  "name": "Bumper beam",
+  "systemId": "body-chassis",
+  "aka": ["bumper reinforcement", "crash beam", "impact bar"],
+  "summary": "A strong bar hidden behind the plastic bumper cover. It takes the first hit in a collision.",
+  "whatItDoes": "It spreads crash forces across the front of the car and into the crumple zones, and protects the radiator and lights in small knocks.",
+  "howItWorks": "The beam is usually steel or aluminium and bolts to crash boxes on the ends of the main frame rails. Those boxes fold up in a controlled way in a low-speed impact, so they can be replaced without repairing the main structure.",
+  "location": "bumper-beam",
+  "connectsTo": ["radiator", "subframe"],
+  "failureSymptoms": [
+    "The bumper cover sits unevenly after a knock",
+    "Visible bending behind the cover",
+    "Radiator damage after a minor impact"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": ["Plastic trim tools", "Socket set", "Torx bits"],
+  "safetyNotes": [
+    "Parking sensors and driver-assistance radar often sit in or behind the bumper. They may need recalibrating after any repair.",
+    "Repair crash structures with approved parts only."
+  ],
+  "relatedTeardowns": []
+}

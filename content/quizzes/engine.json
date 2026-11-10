@@ -1,0 +1,48 @@
+{
+  "systemId": "engine",
+  "questions": [
+    {
+      "prompt": "What does a spark plug do?",
+      "options": [
+        "Pumps fuel into the cylinder",
+        "Lights the fuel and air with a spark",
+        "Cools the cylinder head",
+        "Measures oil pressure"
+      ],
+      "answerIndex": 1,
+      "explanation": "In a petrol engine, the spark plug's spark starts combustion at the right moment. Diesels light their fuel by compression instead.",
+      "partId": "spark-plug"
+    },
+    {
+      "prompt": "What keeps the crankshaft and camshafts turning in step?",
+      "options": ["The alternator", "The timing belt or chain", "The thermostat", "The clutch"],
+      "answerIndex": 1,
+      "explanation": "The timing belt (or chain) links the crankshaft to the camshafts so the valves open at exactly the right time.",
+      "partId": "timing-belt"
+    },
+    {
+      "prompt": "Where do the pistons move up and down?",
+      "options": [
+        "In the cylinders of the engine block",
+        "In the radiator",
+        "In the gearbox",
+        "In the muffler"
+      ],
+      "answerIndex": 0,
+      "explanation": "The pistons run in cylinders machined into the engine block, and push the crankshaft round.",
+      "partId": "engine-block"
+    },
+    {
+      "prompt": "Why can a snapped timing belt badly damage some engines?",
+      "options": [
+        "The belt jams the gearbox",
+        "Pistons can hit valves that are stuck open",
+        "It cuts the fuel line",
+        "It drains the battery"
+      ],
+      "answerIndex": 1,
+      "explanation": "In an 'interference' engine, pistons and open valves share space at different moments. Without the belt keeping them in step, they can collide.",
+      "partId": "timing-belt"
+    }
+  ]
+}

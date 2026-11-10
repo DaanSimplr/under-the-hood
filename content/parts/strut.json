@@ -1,0 +1,30 @@
+{
+  "id": "strut",
+  "name": "Strut (spring and shock absorber)",
+  "systemId": "suspension-steering",
+  "aka": ["MacPherson strut", "shock absorber", "damper", "coilover"],
+  "summary": "A combined spring and shock absorber that holds the car up and stops it from bouncing.",
+  "whatItDoes": "The coil spring carries the car's weight and lets the wheel move over bumps. The shock absorber (damper) inside slows that movement so the car settles instead of bouncing. In a MacPherson strut, the strut also guides the wheel and forms part of the steering pivot.",
+  "howItWorks": "The damper is an oil-filled tube with a piston inside. As the suspension moves, oil is forced through small valves in the piston. That resists the movement and turns it into heat. The spring sits around the damper between two seats, and the top mount bolts into the body.",
+  "location": "strut",
+  "connectsTo": ["control-arm", "wheel-hub", "subframe"],
+  "failureSymptoms": [
+    "The car keeps bouncing after a bump",
+    "Oil leaking down the strut body",
+    "Knocking over bumps",
+    "Patchy, scalloped tyre wear",
+    "One corner sits lower than the others (broken spring)"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": [
+    "Spring compressor rated for the job",
+    "Socket set",
+    "Torque wrench",
+    "Axle stands"
+  ],
+  "safetyNotes": [
+    "A compressed coil spring stores a lot of energy. Use a proper spring compressor, and never undo the top nut of an assembled strut without one.",
+    "Have the wheel alignment checked after replacing struts."
+  ],
+  "relatedTeardowns": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "muffler",
+  "name": "Muffler",
+  "systemId": "fuel-exhaust",
+  "aka": ["silencer", "back box"],
+  "summary": "The box near the back of the exhaust that makes the engine quieter.",
+  "whatItDoes": "It brings the exhaust noise down to a comfortable, legal level.",
+  "howItWorks": "Exhaust gas leaves the engine in loud pulses. Inside the muffler, chambers, perforated tubes and sound-absorbing packing make those pulses bounce around, cancel each other out and lose energy before the gas leaves through the tailpipe.",
+  "location": "muffler",
+  "connectsTo": ["catalytic-converter"],
+  "failureSymptoms": [
+    "A much louder exhaust",
+    "Rattling or blowing noises",
+    "Exhaust smell inside the car (dangerous: get it checked straight away)",
+    "Visible rust holes"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": ["Penetrating oil", "Socket set", "Exhaust hanger pliers", "Axle stands"],
+  "safetyNotes": [
+    "Exhaust fumes contain carbon monoxide. Never run the engine in a closed garage.",
+    "Wait for the exhaust to cool before touching it."
+  ],
+  "relatedTeardowns": []
+}

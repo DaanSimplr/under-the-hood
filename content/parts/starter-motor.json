@@ -1,0 +1,28 @@
+{
+  "id": "starter-motor",
+  "name": "Starter motor",
+  "systemId": "electrical",
+  "aka": ["starter"],
+  "summary": "A strong electric motor that spins the engine to get it started.",
+  "whatItDoes": "An engine can't start itself from rest. The starter turns the crankshaft fast enough for the engine to fire and run on its own.",
+  "howItWorks": "When you turn the key or press start, a solenoid on the starter pushes a small gear (the pinion) into the teeth around the engine's flywheel, and closes a heavy-duty switch. The motor then draws a large current from the battery and spins the engine. As soon as the engine runs, the pinion pulls back out.",
+  "location": "starter-motor",
+  "connectsTo": ["battery", "engine-block", "alternator"],
+  "failureSymptoms": [
+    "A single click and no crank",
+    "Grinding when starting",
+    "The starter keeps whirring after the engine starts",
+    "Starting problems that come and go"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": [
+    "Socket set with extensions",
+    "Axle stands (often reached from below)",
+    "Torque wrench"
+  ],
+  "safetyNotes": [
+    "Disconnect the battery first. The starter's main cable is always live.",
+    "It is heavier than it looks. Support it as the last bolt comes out."
+  ],
+  "relatedTeardowns": []
+}

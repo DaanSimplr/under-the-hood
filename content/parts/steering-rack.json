@@ -1,0 +1,24 @@
+{
+  "id": "steering-rack",
+  "name": "Steering rack",
+  "systemId": "suspension-steering",
+  "aka": ["rack and pinion", "steering gear"],
+  "summary": "Turns the rotation of the steering wheel into the side-to-side push that steers the front wheels.",
+  "whatItDoes": "When you turn the steering wheel, the rack moves left or right and pushes or pulls the front wheels to point them in a new direction.",
+  "howItWorks": "The steering column ends in a small gear (the pinion) that meshes with a toothed bar (the rack). Turning the pinion slides the rack sideways. Tie rods at each end connect the rack to the steering knuckles. Most modern cars add power assistance from an electric motor; older ones use fluid pressure from a pump.",
+  "location": "steering-rack",
+  "connectsTo": ["wheel-hub", "subframe", "airbag-module"],
+  "failureSymptoms": [
+    "Knocking felt through the steering wheel",
+    "Steering that feels loose or wanders",
+    "Power steering fluid leaks (hydraulic systems)",
+    "Heavy steering or a warning light (electric systems)"
+  ],
+  "removalDifficulty": 4,
+  "toolsNeeded": ["Socket set", "Tie rod end separator", "Torque wrench", "Axle stands"],
+  "safetyNotes": [
+    "Centre and lock the steering wheel before disconnecting the column, or you can damage the airbag's clock spring.",
+    "The wheel alignment must be set after replacing the rack or tie rods."
+  ],
+  "relatedTeardowns": []
+}

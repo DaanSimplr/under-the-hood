@@ -1,0 +1,32 @@
+{
+  "id": "spark-plug",
+  "name": "Spark plug",
+  "systemId": "engine",
+  "aka": ["plug"],
+  "summary": "A small part that makes the spark that lights the fuel and air in a petrol engine.",
+  "whatItDoes": "Each cylinder of a petrol engine has a spark plug. It fires at exactly the right moment in every cycle to start combustion. Diesel engines don't use spark plugs: they light their fuel by squeezing the air until it is hot enough.",
+  "howItWorks": "An ignition coil builds up a very high voltage and sends it to the plug. The voltage jumps a small gap between the plug's two electrodes inside the cylinder and makes a spark. The engine computer (ECU) times the spark based on engine speed and load.",
+  "location": "spark-plug",
+  "connectsTo": ["engine-block", "battery"],
+  "failureSymptoms": [
+    "Rough idle or the engine shaking",
+    "Misfires, often with a flashing check-engine light",
+    "Hard starting",
+    "Worse fuel economy"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": [
+    "Spark plug socket (with rubber insert)",
+    "Extension bar",
+    "Torque wrench",
+    "Gap gauge"
+  ],
+  "safetyNotes": [
+    "Let the engine cool fully first. Aluminium cylinder heads strip threads easily when hot.",
+    "Ignition systems make very high voltage. Switch the ignition off and unplug the coils before working."
+  ],
+  "relatedTeardowns": [],
+  "todo": [
+    "// TODO verify: some engines use two plugs per cylinder; left out of the text to keep it simple"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "body-chassis",
+  "name": "Body & chassis",
+  "summary": "The structure everything bolts to. It carries the loads, protects the people inside in a crash and keeps out the weather.",
+  "order": 8,
+  "heroSlot": "system-body-chassis-hero",
+  "partIds": ["subframe", "bumper-beam", "airbag-module"]
+}

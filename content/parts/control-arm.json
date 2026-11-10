@@ -1,0 +1,34 @@
+{
+  "id": "control-arm",
+  "name": "Control arm",
+  "systemId": "suspension-steering",
+  "aka": ["wishbone", "A-arm", "track control arm", "lower arm"],
+  "summary": "A hinged arm that connects the wheel to the car's frame. It lets the wheel move up and down while keeping it in place.",
+  "whatItDoes": "It locates the wheel, stopping it from moving forward, backward or sideways, while still letting it travel up and down.",
+  "howItWorks": "The inner end pivots on rubber bushings mounted to the subframe or body. The outer end carries a ball joint that connects to the steering knuckle, so the wheel can move up and down and also turn for steering.",
+  "location": "control-arm",
+  "connectsTo": ["subframe", "wheel-hub", "strut"],
+  "failureSymptoms": [
+    "Clunks over bumps or when braking",
+    "Steering that wanders",
+    "Uneven tyre wear",
+    "Visible cracks in the rubber bushings"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": [
+    "Socket set",
+    "Breaker bar",
+    "Ball-joint separator",
+    "Pry bar",
+    "Torque wrench",
+    "Axle stands"
+  ],
+  "safetyNotes": [
+    "Many rubber bushings must be tightened with the suspension at normal ride height, or they can tear. Check your manual.",
+    "Have the wheel alignment checked afterwards."
+  ],
+  "relatedTeardowns": [],
+  "todo": [
+    "// TODO verify: ride-height tightening applies to most rubber-bushed arms, not all designs"
+  ]
+}

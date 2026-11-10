@@ -1,0 +1,25 @@
+{
+  "id": "brake-caliper",
+  "name": "Brake caliper",
+  "systemId": "brakes",
+  "aka": ["caliper"],
+  "summary": "The clamp that holds the brake pads and squeezes them against the disc when you press the pedal.",
+  "whatItDoes": "The caliper turns fluid pressure from the brake pedal into a strong clamping force on the disc.",
+  "howItWorks": "Pressing the pedal pushes brake fluid through the brake lines. That fluid pushes a piston (or several) out of the caliper, forcing the pads onto the disc. Most cars use a 'floating' caliper: one piston pushes the inner pad, and the caliper body slides on guide pins to pull the outer pad in. The caliper is held by a bracket bolted to the steering knuckle.",
+  "location": "brake-caliper",
+  "connectsTo": ["brake-pads", "brake-disc", "wheel-hub"],
+  "failureSymptoms": [
+    "The car pulls to one side when braking",
+    "One wheel much hotter than the others after a drive (sticking caliper)",
+    "Brake fluid leaking at the wheel",
+    "Pads wearing unevenly"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": ["Socket set", "Torque wrench", "Brake hose clamp", "Brake fluid", "Bleed kit"],
+  "safetyNotes": [
+    "Never let the caliper hang by its rubber brake hose. Support it with a hook or wire.",
+    "Brake fluid damages paint and irritates skin and eyes. Wear gloves and eye protection.",
+    "If you open the hydraulic system, the brakes must be bled before driving."
+  ],
+  "relatedTeardowns": ["replace-front-brake-pads"]
+}

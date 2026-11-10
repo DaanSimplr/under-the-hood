@@ -1,0 +1,8 @@
+{
+  "id": "suspension-steering",
+  "name": "Suspension & steering",
+  "summary": "Keeps the tyres on the road over bumps and points the front wheels where you want to go. Springs carry the weight, dampers stop the bounce and arms hold each wheel in place.",
+  "order": 4,
+  "heroSlot": "system-suspension-hero",
+  "partIds": ["strut", "control-arm", "steering-rack", "wheel-hub"]
+}

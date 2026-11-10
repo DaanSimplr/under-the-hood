@@ -1,0 +1,33 @@
+{
+  "id": "brake-pads",
+  "name": "Brake pads",
+  "systemId": "brakes",
+  "aka": ["pads", "brake linings"],
+  "summary": "Replaceable friction blocks that press against the disc. They are meant to wear out instead of the disc.",
+  "whatItDoes": "Pads provide the friction that slows the car. They are the brake part you will replace most often.",
+  "howItWorks": "Each pad is a steel backing plate with a block of friction material bonded to it. The caliper pushes one pad against each face of the disc. Many pads have a small metal tab or an electrical sensor that warns you when the friction material is getting thin.",
+  "location": "brake-pads",
+  "connectsTo": ["brake-caliper", "brake-disc"],
+  "failureSymptoms": [
+    "High-pitched squeal from the wear indicator",
+    "Grinding (metal on metal: stop driving and inspect)",
+    "Longer stopping distances",
+    "Brake pad warning light (on cars with wear sensors)"
+  ],
+  "removalDifficulty": 1,
+  "toolsNeeded": [
+    "Wheel brace",
+    "Jack and axle stands",
+    "Socket set",
+    "Piston tool or large clamp",
+    "Torque wrench",
+    "Brake cleaner",
+    "Brake grease"
+  ],
+  "safetyNotes": [
+    "Brake dust is harmful to breathe. Don't blow it off with compressed air; use brake cleaner and a cloth.",
+    "Replace pads in axle sets: both sides together.",
+    "Pump the brake pedal until it feels firm before driving, to bring the pads back against the discs."
+  ],
+  "relatedTeardowns": ["replace-front-brake-pads"]
+}

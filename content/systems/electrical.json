@@ -1,0 +1,8 @@
+{
+  "id": "electrical",
+  "name": "Electrical",
+  "summary": "Stores and makes electricity to start the engine and run lights, computers and comfort features. The battery starts the car; the alternator keeps everything powered while you drive.",
+  "order": 5,
+  "heroSlot": "system-electrical-hero",
+  "partIds": ["battery", "alternator", "starter-motor"]
+}

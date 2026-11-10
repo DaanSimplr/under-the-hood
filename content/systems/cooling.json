@@ -1,0 +1,8 @@
+{
+  "id": "cooling",
+  "name": "Cooling",
+  "summary": "Moves heat out of the engine so it stays at its ideal temperature. Coolant flows through the engine, picks up heat and sheds it in the radiator.",
+  "order": 6,
+  "heroSlot": "system-cooling-hero",
+  "partIds": ["radiator", "water-pump", "thermostat"]
+}

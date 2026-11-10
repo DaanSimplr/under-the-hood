@@ -1,0 +1,48 @@
+{
+  "systemId": "drivetrain",
+  "questions": [
+    {
+      "prompt": "What happens when you press the clutch pedal?",
+      "options": [
+        "The engine connects to the brakes",
+        "The engine disconnects from the gearbox",
+        "The car shifts up a gear by itself",
+        "The differential locks"
+      ],
+      "answerIndex": 1,
+      "explanation": "Pressing the pedal unclamps the clutch disc, so the engine can keep turning while the gearbox is free to change gear or stand still.",
+      "partId": "clutch"
+    },
+    {
+      "prompt": "Why does a car need a gearbox?",
+      "options": [
+        "To keep the engine in its useful speed range at any road speed",
+        "To cool the engine",
+        "To charge the battery",
+        "To steer the wheels"
+      ],
+      "answerIndex": 0,
+      "explanation": "Low gears give lots of pulling force for setting off; high gears let the engine turn slowly at cruising speed.",
+      "partId": "transmission"
+    },
+    {
+      "prompt": "A clicking noise when turning sharply often points to…",
+      "options": [
+        "A worn outer CV joint",
+        "A flat battery",
+        "A sticking thermostat",
+        "Worn spark plugs"
+      ],
+      "answerIndex": 0,
+      "explanation": "Outer CV joints work hardest at full steering lock. Once worn (often after the boot splits), they click in tight turns.",
+      "partId": "cv-axle"
+    },
+    {
+      "prompt": "In a front-wheel-drive car, what is the gearbox-plus-differential unit called?",
+      "options": ["Transaxle", "Subframe", "Strut", "Caliper"],
+      "answerIndex": 0,
+      "explanation": "A transaxle puts the gearbox and differential in one case, which saves space in a front-wheel-drive car.",
+      "partId": "transmission"
+    }
+  ]
+}

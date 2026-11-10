@@ -1,0 +1,8 @@
+{
+  "id": "drivetrain",
+  "name": "Drivetrain",
+  "summary": "Carries the engine's power to the wheels. The clutch, gearbox and axles let the car pull away gently, cruise efficiently and turn corners.",
+  "order": 2,
+  "heroSlot": "system-drivetrain-hero",
+  "partIds": ["clutch", "transmission", "cv-axle"]
+}

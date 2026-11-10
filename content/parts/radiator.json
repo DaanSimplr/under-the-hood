@@ -1,0 +1,30 @@
+{
+  "id": "radiator",
+  "name": "Radiator",
+  "systemId": "cooling",
+  "aka": ["rad"],
+  "summary": "A heat exchanger at the front of the car that cools the engine's coolant with passing air.",
+  "whatItDoes": "Hot coolant from the engine flows through the radiator, gives its heat to the air, and goes back to the engine cooler.",
+  "howItWorks": "Coolant runs through many thin tubes linked by metal fins. Air flows over the fins while driving, or an electric fan pulls it through when the car is standing still. The pressure cap raises the coolant's boiling point so it can run hotter without boiling.",
+  "location": "radiator",
+  "connectsTo": ["water-pump", "thermostat", "bumper-beam"],
+  "failureSymptoms": [
+    "Engine temperature climbing, especially in traffic",
+    "Coolant puddles under the front of the car",
+    "A sweet smell",
+    "Bent or clogged fins"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": [
+    "Drain pan",
+    "Hose clamp pliers",
+    "Socket set",
+    "Coolant of the correct type",
+    "Funnel"
+  ],
+  "safetyNotes": [
+    "Never open the radiator or expansion tank cap while the engine is hot. Scalding coolant can spray out.",
+    "Coolant is poisonous and tastes sweet. Clean up spills and keep it away from pets and children."
+  ],
+  "relatedTeardowns": []
+}

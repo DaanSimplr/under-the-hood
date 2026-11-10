@@ -1,0 +1,8 @@
+{
+  "id": "brakes",
+  "name": "Brakes",
+  "summary": "Turn the car's movement into heat to slow it down. Press the pedal and fluid pressure pushes pads against spinning discs at each wheel.",
+  "order": 3,
+  "heroSlot": "system-brakes-hero",
+  "partIds": ["brake-disc", "brake-caliper", "brake-pads"]
+}

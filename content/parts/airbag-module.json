@@ -1,0 +1,25 @@
+{
+  "id": "airbag-module",
+  "name": "Airbag module",
+  "systemId": "body-chassis",
+  "aka": ["SRS", "driver airbag", "supplemental restraint system"],
+  "summary": "A folded bag with a small gas charge that inflates in a crash to cushion the people inside.",
+  "whatItDoes": "Together with the seatbelts, it protects people's heads and chests in a collision. The driver airbag sits in the steering wheel; others are in the dashboard, seats, roof rails and doors.",
+  "howItWorks": "Crash sensors report to an airbag control unit. If it decides the crash is severe enough, it fires an igniter that sets off a gas generator. The bag inflates in a fraction of a second and then deflates through vents.",
+  "location": "airbag-module",
+  "connectsTo": ["steering-rack", "battery"],
+  "failureSymptoms": [
+    "The airbag warning light stays on",
+    "A warning light after removing seats or the steering wheel (often a connector)"
+  ],
+  "removalDifficulty": 4,
+  "toolsNeeded": ["Torx bits", "Plastic trim tools", "Service manual"],
+  "safetyNotes": [
+    "Airbags can deploy with great force. Disconnect the battery and wait the time given in the manual before touching any airbag part.",
+    "Carry a removed airbag with the bag side facing away from you, and store it face up.",
+    "Never probe airbag wiring with a test light or multimeter.",
+    "In many places, airbag work must be done by trained technicians."
+  ],
+  "relatedTeardowns": [],
+  "todo": ["// TODO verify: the wait time after disconnecting the battery varies by manufacturer"]
+}

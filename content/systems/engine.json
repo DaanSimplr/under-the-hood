@@ -1,0 +1,8 @@
+{
+  "id": "engine",
+  "name": "Engine",
+  "summary": "Burns fuel and air to make the turning force that moves the car. Pistons, a crankshaft and carefully timed valves turn many small explosions into smooth rotation.",
+  "order": 1,
+  "heroSlot": "system-engine-hero",
+  "partIds": ["engine-block", "spark-plug", "timing-belt"]
+}

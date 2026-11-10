@@ -1,0 +1,29 @@
+{
+  "id": "wheel-hub",
+  "name": "Wheel hub and bearing",
+  "systemId": "suspension-steering",
+  "aka": ["hub", "wheel bearing", "hub assembly"],
+  "summary": "The spinning mount that the brake disc and wheel bolt to. It runs on a bearing inside the steering knuckle.",
+  "whatItDoes": "It lets the wheel spin freely while carrying the car's weight and the forces of cornering and braking.",
+  "howItWorks": "A sealed bearing (rows of steel balls or rollers) sits between the fixed knuckle and the turning hub flange. Wheel studs pass through the flange: the brake disc slips over them, then the wheel. On driven wheels the CV axle passes through the middle of the hub. Many cars also put the ABS wheel-speed sensor here.",
+  "location": "wheel-hub",
+  "connectsTo": ["brake-disc", "brake-caliper", "cv-axle", "strut", "control-arm", "steering-rack"],
+  "failureSymptoms": [
+    "Humming or growling that gets louder with speed and changes when you turn",
+    "Play when you rock the wheel top to bottom",
+    "ABS warning light (damaged sensor ring)"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": [
+    "Large axle-nut socket",
+    "Breaker bar",
+    "Hub puller or press",
+    "Torque wrench",
+    "Axle stands"
+  ],
+  "safetyNotes": [
+    "Pressed-in bearings need a press. Hammering them in ruins them.",
+    "Tighten the axle nut to the figure in the manual: the bearing's preload depends on it."
+  ],
+  "relatedTeardowns": []
+}

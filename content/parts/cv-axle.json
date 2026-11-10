@@ -1,0 +1,29 @@
+{
+  "id": "cv-axle",
+  "name": "CV axle (driveshaft)",
+  "systemId": "drivetrain",
+  "aka": ["driveshaft", "half shaft", "drive axle"],
+  "summary": "A shaft with flexible joints at each end. It carries power from the gearbox to a wheel while the suspension moves and the wheels steer.",
+  "whatItDoes": "The wheels move up and down over bumps, and the front wheels turn when you steer. The CV axle keeps delivering smooth power to the wheel through all of those angles.",
+  "howItWorks": "Each end has a constant-velocity (CV) joint: balls or rollers that run in grooves, packed in grease and sealed by a rubber boot. The joint lets the shaft bend while the wheel still turns at an even speed. The inner joint can also slide a little, so the axle can change length as the suspension moves.",
+  "location": "cv-axle",
+  "connectsTo": ["transmission", "wheel-hub"],
+  "failureSymptoms": [
+    "Clicking when turning sharply (worn outer joint)",
+    "Grease flung around the inside of the wheel (split boot)",
+    "Vibration when accelerating"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": [
+    "Large socket for the axle nut",
+    "Breaker bar",
+    "Ball-joint separator",
+    "Axle stands",
+    "Torque wrench"
+  ],
+  "safetyNotes": [
+    "The axle nut is very tight. Break it loose with the wheel on the ground, not with the car balanced on a jack.",
+    "Support the car on axle stands before working underneath."
+  ],
+  "relatedTeardowns": []
+}

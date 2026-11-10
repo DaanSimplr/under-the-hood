@@ -1,0 +1,48 @@
+{
+  "systemId": "cooling",
+  "questions": [
+    {
+      "prompt": "What does the thermostat do?",
+      "options": [
+        "Controls coolant flow to keep the engine at working temperature",
+        "Pumps fuel",
+        "Measures tyre pressure",
+        "Charges the battery"
+      ],
+      "answerIndex": 0,
+      "explanation": "It stays closed while the engine warms up, then opens to send coolant through the radiator.",
+      "partId": "thermostat"
+    },
+    {
+      "prompt": "Why must you never open the radiator cap on a hot engine?",
+      "options": [
+        "The coolant is under pressure and can spray out scalding hot",
+        "It resets the ECU",
+        "It damages the thermostat",
+        "The cap is locked when hot"
+      ],
+      "answerIndex": 0,
+      "explanation": "Hot coolant is kept under pressure. Releasing it suddenly lets it boil and spray.",
+      "partId": "radiator"
+    },
+    {
+      "prompt": "What moves the coolant around the engine?",
+      "options": [
+        "The water pump",
+        "The alternator",
+        "The steering rack",
+        "The catalytic converter"
+      ],
+      "answerIndex": 0,
+      "explanation": "The water pump's spinning impeller pushes coolant through the engine and radiator.",
+      "partId": "water-pump"
+    },
+    {
+      "prompt": "The heater blows cold and the temperature gauge stays low. The thermostat is probably…",
+      "options": ["Stuck open", "Stuck closed", "Brand new", "Unplugged from the battery"],
+      "answerIndex": 0,
+      "explanation": "Stuck open, it sends coolant to the radiator all the time, so the engine never fully warms up.",
+      "partId": "thermostat"
+    }
+  ]
+}

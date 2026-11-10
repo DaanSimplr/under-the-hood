@@ -1,0 +1,24 @@
+{
+  "id": "transmission",
+  "name": "Transmission (gearbox)",
+  "systemId": "drivetrain",
+  "aka": ["gearbox", "transaxle"],
+  "summary": "The gearbox lets the engine stay in its useful speed range whether the car is crawling or cruising.",
+  "whatItDoes": "An engine only makes useful power within a band of speeds. The gearbox picks a gear ratio so the engine can pull away from a stop with plenty of force, and still cruise at motorway speed without revving too high. It also gives you reverse.",
+  "howItWorks": "Pairs of gears of different sizes give different ratios. In a manual gearbox you choose the pair with the gear lever. In an automatic, the transmission chooses for you using planetary gear sets and clutches, or a belt and pulleys (CVT). In front-wheel-drive cars, the gearbox and differential share one case called a transaxle, which sends power to both front axles.",
+  "location": "transmission",
+  "connectsTo": ["clutch", "cv-axle", "engine-block", "subframe"],
+  "failureSymptoms": [
+    "Whining or humming that changes with road speed",
+    "Jumping out of gear",
+    "Slipping or harsh shifts (automatics)",
+    "Fluid leaks under the middle of the car"
+  ],
+  "removalDifficulty": 5,
+  "toolsNeeded": ["Transmission jack", "Socket set", "Axle stands", "Drain pan", "Service manual"],
+  "safetyNotes": [
+    "Very heavy. Never get under it while it is unsupported.",
+    "Gear oil and automatic transmission fluid can be hot after driving."
+  ],
+  "relatedTeardowns": []
+}

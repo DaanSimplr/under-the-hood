@@ -1,0 +1,24 @@
+{
+  "id": "water-pump",
+  "name": "Water pump",
+  "systemId": "cooling",
+  "aka": ["coolant pump"],
+  "summary": "Pumps coolant around the engine and the radiator.",
+  "whatItDoes": "It keeps coolant moving so heat is carried away from the engine to the radiator.",
+  "howItWorks": "An impeller (a small wheel with curved vanes) spins inside a housing on the engine and pushes coolant through passages in the block and cylinder head. Most water pumps are driven by the timing belt or the accessory belt; some newer engines use electric pumps.",
+  "location": "water-pump",
+  "connectsTo": ["engine-block", "radiator", "thermostat", "timing-belt"],
+  "failureSymptoms": [
+    "Coolant dripping from a small 'weep hole' near the pump",
+    "Overheating",
+    "Whining or grinding from the front of the engine",
+    "A wobbly pump pulley"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": ["Socket set", "Drain pan", "Gasket scraper", "Torque wrench", "Coolant"],
+  "safetyNotes": [
+    "Let the engine cool completely before draining coolant.",
+    "If the timing belt drives the pump, the engine timing must be set correctly when you put it back together."
+  ],
+  "relatedTeardowns": []
+}

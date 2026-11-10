@@ -1,0 +1,31 @@
+{
+  "id": "fuel-pump",
+  "name": "Fuel pump",
+  "systemId": "fuel-exhaust",
+  "aka": ["in-tank pump", "lift pump"],
+  "summary": "An electric pump, usually inside the fuel tank, that sends fuel forward to the engine.",
+  "whatItDoes": "It supplies fuel to the engine at the pressure the injectors need.",
+  "howItWorks": "An electric motor sitting in the fuel drives a small pump, and the fuel around it keeps it cool. Many direct-injection petrol engines also have a second, mechanical high-pressure pump on the engine. The in-tank pump is often reached through an access panel under the rear seat, or from below with the tank lowered.",
+  "location": "fuel-pump",
+  "connectsTo": ["battery", "engine-block"],
+  "failureSymptoms": [
+    "The engine cranks but won't start",
+    "Hesitation or loss of power under load",
+    "Whining from the rear of the car",
+    "Stalling when hot"
+  ],
+  "removalDifficulty": 3,
+  "toolsNeeded": [
+    "Fuel line disconnect tools",
+    "Lock ring tool",
+    "Socket set",
+    "Fire extinguisher within reach"
+  ],
+  "safetyNotes": [
+    "Petrol vapour is extremely flammable. Work outdoors or somewhere well ventilated, with no flames or sparks.",
+    "Relieve the fuel pressure and disconnect the battery before opening any fuel line.",
+    "Diesel high-pressure systems run at very high pressure. Leave them to a professional."
+  ],
+  "relatedTeardowns": [],
+  "todo": ["// TODO verify: access under the rear seat is common but depends on the model"]
+}

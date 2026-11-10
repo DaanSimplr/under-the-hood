@@ -1,0 +1,31 @@
+{
+  "id": "brake-disc",
+  "name": "Brake disc",
+  "systemId": "brakes",
+  "aka": ["brake rotor", "rotor"],
+  "summary": "A round metal disc that spins with the wheel. The brake pads squeeze it to slow the car.",
+  "whatItDoes": "It gives the brake pads a hard, flat surface to grip. As the pads clamp it, friction turns the car's movement into heat, and the disc soaks up that heat and sheds it into the air.",
+  "howItWorks": "The disc sits between the wheel hub and the wheel, so it turns at wheel speed. Many front discs are 'vented': two faces with cooling vanes between them that pump air through as the disc spins. Discs wear thinner over time, and each one has a minimum thickness stamped on it.",
+  "location": "brake-disc",
+  "connectsTo": ["wheel-hub", "brake-pads", "brake-caliper"],
+  "failureSymptoms": [
+    "Vibration through the steering wheel or brake pedal when braking",
+    "Deep grooves, or a raised lip around the outer edge",
+    "Blue heat marks on the surface",
+    "Thickness below the minimum stamped on the disc"
+  ],
+  "removalDifficulty": 2,
+  "toolsNeeded": [
+    "Wheel brace",
+    "Socket set",
+    "Torque wrench",
+    "Axle stands",
+    "Brake cleaner",
+    "Vernier caliper or micrometer"
+  ],
+  "safetyNotes": [
+    "Discs get extremely hot. Let them cool before touching.",
+    "Replace discs in pairs on the same axle."
+  ],
+  "relatedTeardowns": ["replace-front-brake-pads"]
+}

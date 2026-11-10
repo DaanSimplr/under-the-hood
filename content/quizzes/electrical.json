@@ -1,0 +1,38 @@
+{
+  "systemId": "electrical",
+  "questions": [
+    {
+      "prompt": "What charges the battery while the engine runs?",
+      "options": ["The starter motor", "The alternator", "The fuel pump", "The thermostat"],
+      "answerIndex": 1,
+      "explanation": "The belt-driven alternator makes electricity once the engine is running and recharges the battery.",
+      "partId": "alternator"
+    },
+    {
+      "prompt": "Which battery terminal should you disconnect first?",
+      "options": ["Positive (+)", "Negative (−)", "Either one", "Both at the same time"],
+      "answerIndex": 1,
+      "explanation": "With the negative off first, a spanner that touches the body while you undo the positive can't cause a short circuit.",
+      "partId": "battery"
+    },
+    {
+      "prompt": "A single click and no crank when you try to start often points to…",
+      "options": [
+        "A weak battery or a failing starter",
+        "A blocked radiator",
+        "Worn brake pads",
+        "A loose muffler"
+      ],
+      "answerIndex": 0,
+      "explanation": "The click is usually the starter solenoid. If the motor doesn't spin, the battery may be too weak or the starter may be failing.",
+      "partId": "starter-motor"
+    },
+    {
+      "prompt": "Roughly what voltage does a healthy charging system show with the engine running?",
+      "options": ["About 6 V", "About 9 V", "About 13.5 to 14.5 V", "About 230 V"],
+      "answerIndex": 2,
+      "explanation": "A running engine with a working alternator usually shows about 13.5 to 14.5 V at the battery. Some smart-charging cars vary more.",
+      "partId": "alternator"
+    }
+  ]
+}

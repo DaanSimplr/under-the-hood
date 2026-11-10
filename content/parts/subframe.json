@@ -1,0 +1,29 @@
+{
+  "id": "subframe",
+  "name": "Subframe",
+  "systemId": "body-chassis",
+  "aka": ["crossmember", "engine cradle", "K-frame"],
+  "summary": "A strong steel frame bolted under the car. It carries the engine mounts, the steering rack and the suspension arms.",
+  "whatItDoes": "It gives heavy, highly loaded parts a stiff place to mount, and spreads their forces into the body.",
+  "howItWorks": "Most modern cars have a unibody: the body itself is the main structure, with no separate chassis. Subframes bolt to reinforced points of that body, often through rubber bushes that cut noise and vibration. Dropping the subframe often brings the engine, gearbox or suspension down with it.",
+  "location": "subframe",
+  "connectsTo": ["control-arm", "steering-rack", "engine-block", "transmission", "strut"],
+  "failureSymptoms": [
+    "Clunks when accelerating or braking (worn mounts)",
+    "Rust holes or cracks",
+    "A wheel alignment that won't stay set"
+  ],
+  "removalDifficulty": 5,
+  "toolsNeeded": [
+    "Transmission jack or subframe support",
+    "Socket set and breaker bar",
+    "Torque wrench",
+    "Alignment pins (some models)"
+  ],
+  "safetyNotes": [
+    "The subframe may be holding up the engine. Support everything before removing any bolts.",
+    "Subframe bolts are often single-use. Check the manual and fit new ones if required."
+  ],
+  "relatedTeardowns": [],
+  "todo": ["// TODO verify: single-use (stretch) subframe bolts are common but model-specific"]
+}
