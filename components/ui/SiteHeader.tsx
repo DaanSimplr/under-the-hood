@@ -7,7 +7,10 @@ export function SiteHeader({ search }: { search?: React.ReactNode }) {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/75">
       <div className="relative mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-2 font-semibold tracking-tight whitespace-nowrap"
+        >
           <Logo />
           <span>{site.name}</span>
         </Link>

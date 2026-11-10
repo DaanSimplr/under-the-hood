@@ -130,70 +130,64 @@
 }
 
 /* ------------------------------------------------------------------
-   Base
+   Base and component styles. They live in cascade layers so Tailwind
+   utilities (which are in the later "utilities" layer) always win.
    ------------------------------------------------------------------ */
-html {
-  -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 5rem;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* SVG hotspots draw their own focus ring. */
+  svg :focus-visible {
+    outline: none;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
 }
 
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-}
+@layer components {
+  /* Prose links: underlined so they are not identified by color alone. */
+  .prose-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .prose-link:hover {
+    color: var(--accent);
+  }
 
-a {
-  color: inherit;
-}
-
-:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-/* SVG hotspots draw their own ring, see .hotspot */
-svg :focus-visible {
-  outline: none;
-}
-
-::selection {
-  background: var(--accent);
-  color: var(--accent-fg);
-}
-
-/* Prose links: underlined so they are not identified by color alone. */
-.prose-link {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-.prose-link:hover {
-  color: var(--accent);
-}
-
-/* Glossary term links: dotted, still clearly a link. */
-.term-link {
-  text-decoration: underline dotted;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  cursor: help;
-}
-.term-link:hover {
-  color: var(--accent);
-}
-
-/* Teardown steps are numbered automatically. */
-.steps {
-  counter-reset: step;
-}
-.step {
-  counter-increment: step;
-}
-.step-number::before {
-  content: counter(step);
+  /* Glossary term links: dotted, still clearly a link. */
+  .term-link {
+    text-decoration: underline dotted;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    cursor: help;
+  }
+  .term-link:hover {
+    color: var(--accent);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

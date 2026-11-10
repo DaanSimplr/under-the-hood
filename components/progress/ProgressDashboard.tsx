@@ -14,7 +14,10 @@ type Totals = {
 
 function Stat({ label, value, of }: { label: string; value: number; of: number }) {
   return (
-    <div className="rounded-card border border-border bg-surface p-5">
+    <div
+      className="rounded-card border border-border bg-surface p-5"
+      data-testid={`stat-${label.toLowerCase().replaceAll(" ", "-")}`}
+    >
       <p className="text-sm text-muted">{label}</p>
       <p className="mt-1 text-3xl font-bold">
         {value}

@@ -16,10 +16,7 @@ export function DifficultyBadge({
 }) {
   const text = difficultyLabel(level);
   return (
-    <span
-      className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-sm"
-      aria-label={`${label}: ${level} out of 5, ${text}`}
-    >
+    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-sm">
       <span aria-hidden="true" className="flex gap-0.5">
         {[1, 2, 3, 4, 5].map((n) => (
           <span
@@ -28,7 +25,12 @@ export function DifficultyBadge({
           />
         ))}
       </span>
-      <span aria-hidden="true">{text}</span>
+      <span>
+        <span className="sr-only">
+          {label}: {level} out of 5,{" "}
+        </span>
+        {text}
+      </span>
     </span>
   );
 }

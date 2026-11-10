@@ -71,7 +71,7 @@ export function SearchDialog() {
 
   useEffect(() => {
     const q = query.trim();
-     
+
     setResults(
       q.length >= 2 && searcher.current
         ? searcher.current.search(q, { limit: 8 }).map((r) => r.item)

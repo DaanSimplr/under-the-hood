@@ -307,6 +307,14 @@ dialog (Ctrl/⌘ K or `/`) fetches the file on first open and runs
 - Three.js is in its own chunk and only loads on pages with an exploded view,
   when it scrolls into view.
 - The search index is fetched only when search opens.
+- Base CSS lives in cascade layers (`@layer base/components`), so Tailwind
+  utilities always win. Unlayered element rules would silently override them.
+
+Measured with Lighthouse 12 (mobile, simulated throttling) on the static build
+served with gzip (`npm start`), with all media still placeholders: **performance
+97**, accessibility 100, best practices 96, LCP 2.6 s, TBT 40 ms, CLS 0. Serve
+the site compressed (any CDN or static host does). Without compression the
+same page scores about 81.
 
 ---
 
