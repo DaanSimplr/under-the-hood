@@ -25,8 +25,5 @@
     "Let the engine cool fully first. Aluminium cylinder heads strip threads easily when hot.",
     "Ignition systems make very high voltage. Switch the ignition off and unplug the coils before working."
   ],
-  "relatedTeardowns": [],
-  "todo": [
-    "// TODO verify: some engines use two plugs per cylinder; left out of the text to keep it simple"
-  ]
+  "relatedTeardowns": []
 }

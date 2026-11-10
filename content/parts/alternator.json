@@ -27,8 +27,5 @@
     "Disconnect the battery first. The alternator's main output wire is live all the time.",
     "Keep hands clear of the belt and fan. Never work on the belt with the engine running."
   ],
-  "relatedTeardowns": ["remove-alternator"],
-  "todo": [
-    "// TODO verify: 13.5–14.5 V is typical; 'smart charging' systems can vary outside this range"
-  ]
+  "relatedTeardowns": ["remove-alternator"]
 }

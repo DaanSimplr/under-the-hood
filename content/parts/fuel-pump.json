@@ -26,6 +26,5 @@
     "Relieve the fuel pressure and disconnect the battery before opening any fuel line.",
     "Diesel high-pressure systems run at very high pressure. Leave them to a professional."
   ],
-  "relatedTeardowns": [],
-  "todo": ["// TODO verify: access under the rear seat is common but depends on the model"]
+  "relatedTeardowns": []
 }

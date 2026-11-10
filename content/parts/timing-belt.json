@@ -25,6 +25,5 @@
     "Replace it at the interval in your service schedule. Don't wait for symptoms.",
     "Getting the timing wrong can destroy the engine. Use the correct locking tools for your engine."
   ],
-  "relatedTeardowns": [],
-  "todo": ["// TODO verify: replacement intervals vary widely by engine, so none is stated"]
+  "relatedTeardowns": []
 }

@@ -24,6 +24,5 @@
     "The subframe may be holding up the engine. Support everything before removing any bolts.",
     "Subframe bolts are often single-use. Check the manual and fit new ones if required."
   ],
-  "relatedTeardowns": [],
-  "todo": ["// TODO verify: single-use (stretch) subframe bolts are common but model-specific"]
+  "relatedTeardowns": []
 }

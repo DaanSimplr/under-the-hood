@@ -20,6 +20,5 @@
     "Never probe airbag wiring with a test light or multimeter.",
     "In many places, airbag work must be done by trained technicians."
   ],
-  "relatedTeardowns": [],
-  "todo": ["// TODO verify: the wait time after disconnecting the battery varies by manufacturer"]
+  "relatedTeardowns": []
 }

@@ -27,8 +27,5 @@
     "Many rubber bushings must be tightened with the suspension at normal ride height, or they can tear. Check your manual.",
     "Have the wheel alignment checked afterwards."
   ],
-  "relatedTeardowns": [],
-  "todo": [
-    "// TODO verify: ride-height tightening applies to most rubber-bushed arms, not all designs"
-  ]
+  "relatedTeardowns": []
 }
