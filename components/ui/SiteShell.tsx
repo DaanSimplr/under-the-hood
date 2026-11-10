@@ -1,3 +1,5 @@
+import { ProgressHydrator } from "@/components/progress/ProgressHydrator";
+import { SearchDialog } from "@/components/search/SearchDialog";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
@@ -10,11 +12,12 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       >
         Skip to content
       </a>
-      <SiteHeader />
+      <SiteHeader search={<SearchDialog />} />
       <main id="main" tabIndex={-1} className="outline-none">
         {children}
       </main>
       <SiteFooter />
+      <ProgressHydrator />
     </>
   );
 }
