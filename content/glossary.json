@@ -53,7 +53,7 @@
   {
     "id": "camshaft",
     "term": "Camshaft",
-    "aka": ["cam"],
+    "aka": [],
     "definition": "A shaft with egg-shaped lobes that push the engine's valves open at the right moments. It is driven from the crankshaft by the timing belt or chain."
   },
   {
@@ -169,8 +169,8 @@
   },
   {
     "id": "rotor",
-    "term": "Rotor",
-    "aka": ["brake rotor"],
+    "term": "Brake rotor",
+    "aka": [],
     "definition": "Another name for the brake disc, common in North America.",
     "partId": "brake-disc"
   },
