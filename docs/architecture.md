@@ -56,8 +56,9 @@ and the App Router gives that with less glue.
   layout.tsx                 root <html>, theme script, metadata (og-image slot)
   globals.css                design tokens + Tailwind
   search-index.json/route.ts static JSON: prebuilt Fuse index
+  not-found.tsx              404 page (uses the same SiteShell)
   /(site)
-    layout.tsx               header, nav, search, theme toggle, footer
+    layout.tsx               wraps pages in SiteShell (header, nav, search, theme toggle, footer)
     page.tsx                 Home: hero loop + entry points
     systems/page.tsx         all systems grid
     systems/[system]/page.tsx
@@ -73,24 +74,30 @@ and the App Router gives that with less glue.
   systems/*.json  parts/*.json  teardowns/*.mdx  quizzes/*.json
   glossary.json   hotspots.json (diagram coordinates)
 /components
-  media/    MediaSlot (server), VideoLoop (client), ImageSlot, PlaceholderMedia
-  diagram/  CarSilhouette, CarExplorer, PartHotspot, DiagramFocus, ExplodedView (lazy)
-  lesson/   Step, StepCard, ToolList, SafetyCallout, DifficultyBadge, TorqueSpec, Term
+  media/    MediaSlot (server), VideoLoop, ImageSlot, PlaceholderMedia, StartGuide (transition)
+  diagram/  CarDrawing (pure SVG), CarExplorer, PartHotspot, DiagramFocus,
+            SystemDiagrams, ExplodedView (client shell) + ExplodedViewCanvas (lazy R3F chunk)
+  lesson/   lesson.tsx: StepCard, ToolList, SafetyCallout, DifficultyBadge, TorqueSpec, Term
+            GlossaryText (auto glossary links), mdxComponents (Step + MDX mapping)
   quiz/     QuizRunner, QuestionCard
-  progress/ client widgets that read/write the progress store
+  progress/ ProgressHydrator, StepDoneToggle, TeardownProgress, PartProgress,
+            QuizBest, ProgressDashboard
   search/   SearchDialog
-  ui/       shared primitives (Button, Card, Chip, Container, ThemeToggle …)
+  ui/       SiteShell, SiteHeader, NavLinks, ThemeToggle, PageHero, Container, primitives
 /lib
   schemas.ts   Zod schemas (single source for content types)
   content.ts   loads + validates all content, checks cross-references
-  mdx.ts       compiles teardown bodies with the lesson components
+  mdx.tsx      compiles teardown bodies with the lesson components
   assets.ts    reads assets.json, resolves slots (server only)
   media.ts     pure helpers shared by server and client (aspect parsing …)
   progress.ts  progress store (Zustand) + pure reducers
   search.ts    builds search docs and the Fuse index
   glossary.ts  links glossary terms inside plain text
   safety.ts    standard safety callout texts
+  diagram.ts   diagram geometry, connection map, plain-language locations
+  quiz.ts      scoring helpers
   assemblies/  data for exploded views (brake-corner)
+/scripts/serve-static.mjs   tiny static server for ./out (npm start, e2e)
 /public/media/assets.json    THE CONTRACT with the media agent
 /tests  unit (Vitest)   /e2e  smoke (Playwright)
 ```
@@ -128,12 +135,16 @@ file and the field.
 
 **Teardown MDX components**: `<Step id title>`, `<DiagramFocus part>`,
 `<SafetyCallout topic>`, `<TorqueSpec fastener range?>`, `<Term id>`,
-`<ExplodedView assembly>`. Steps are numbered with CSS counters, so authors do
-not number them by hand. The step `id` is what progress tracking stores.
+`<ExplodedView assembly>`. Steps get their number from their position (the
+loader scans the step ids in body order), so authors do not number them by
+hand. The number is real text, so screen readers hear "Step 3 of 12". The
+step `id` is what progress tracking stores.
 
-**Facts**: anything I was unsure of is marked `// TODO verify` (in JSON it sits
-in a `"_todo"` field or inside the text). Torque is never given as a number
-unless it is a broad range with a "check your manual" note.
+**Facts**: anything I was unsure of is marked `// TODO verify`. In JSON it goes
+in an optional `"todo"` array (validated, not shown on the site). In MDX it is
+an MDX comment `{/* TODO verify: … */}`. Torque is never given as a single
+number. `<TorqueSpec>` always says "see your vehicle's manual" and can show a
+broad typical range. A unit test fails if a single N·m figure appears.
 
 ---
 
@@ -176,14 +187,14 @@ Rules the code follows:
 
 **Slot → page wiring**
 
-| Slot                        | Where                                                                 |
-| --------------------------- | --------------------------------------------------------------------- |
-| `home-hero-loop`            | Home hero background                                                  |
-| `explorer-bg-loop`          | Behind the car diagram on `/explorer`                                 |
-| `workshop-ambient-loop`     | `/teardowns` header and each teardown header (default `heroSlot`)     |
-| `teardown-intro-transition` | Plays once when the reader presses "Start guide"                      |
-| `system-<id>-hero` (8)      | Each system page header and its card on `/systems`                    |
-| `og-image`                  | Open Graph / Twitter image in the root metadata (only once available) |
+| Slot                        | Where                                                                                                                                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `home-hero-loop`            | Home hero background                                                                                                                                                                     |
+| `explorer-bg-loop`          | Behind the car diagram on `/explorer`                                                                                                                                                    |
+| `workshop-ambient-loop`     | `/teardowns` header and each teardown header (default `heroSlot`)                                                                                                                        |
+| `teardown-intro-transition` | Plays once when the reader presses "Start the guide", then focus moves to the steps (skipped with reduced motion; in dev the placeholder flashes briefly so its position can be checked) |
+| `system-<id>-hero` (8)      | Each system page header and its card on `/systems`                                                                                                                                       |
+| `og-image`                  | Open Graph / Twitter image in the root metadata (only once available)                                                                                                                    |
 
 Swapping in real media is: drop files at the manifest paths, set `status` to
 `generated` or `approved`, rebuild. No code changes.
@@ -192,7 +203,7 @@ Swapping in real media is: drop files at the manifest paths, set `status` to
 
 ## 6. Interactive diagrams
 
-**CarSilhouette** is a pure SVG side view (car faces left, viewBox
+**CarDrawing** is a pure SVG side view (car faces left, viewBox
 `0 0 1000 440`). It draws the body, wheels and faint outlines of the main
 internals. It has no state, so it renders on the server too.
 
@@ -208,17 +219,28 @@ internals. It has no state, so it renders on the server too.
   small screens where hotspots are close together.
 - Hotspot colors come from per-system tokens.
 
-**DiagramFocus** renders the same silhouette with one part highlighted. It is
-used in teardown steps and on part pages ("Where it sits").
+- On `/explorer`, `?part=<id>` opens a part and `?system=<id>` sets the filter.
+  On a system page the explorer starts filtered to that system.
 
-**ExplodedView** (client, lazy) shows one assembly from `lib/assemblies/`.
+**DiagramFocus** renders the same drawing with one part highlighted, as a
+server component with no client JS. Its `<title>` describes the location in
+words ("in the engine bay at the front of the car, near the top"). It is used
+in teardown steps and on part pages ("Where it sits").
+
+**ExplodedView** (client) shows one assembly from `lib/assemblies/`.
 The brake corner is: hub with wheel studs, disc, caliper bracket, inner pad,
-outer pad, caliper. Each piece has a rest position and an explode offset.
-A slider (0–100%) moves pieces along their offsets, and labels are DOM
-overlays from drei `<Html>`. An ordered list next to the canvas gives the
-same information as text for screen readers. The R3F bundle loads only when
-the component scrolls into view (`next/dynamic` with `ssr: false` plus an
-IntersectionObserver).
+outer pad, caliper. Each piece has a rest position, an explode offset and a
+removal order. Unit tests check the order (caliper → pads → bracket → disc,
+hub stays) and the positions (a pad on each face of the disc, hub flange
+inboard). A slider (0–100%) and Assemble/Explode buttons move pieces along
+their offsets. Labels are plain DOM elements positioned each frame by
+projecting their 3D anchor. This keeps them crisp and theme-aware, and avoids
+drei `<Html>` creating extra React roots. An ordered list beside the canvas
+gives the same information as text. The Three.js chunk
+(`ExplodedViewCanvas`) loads only when the view comes within 300px of the
+viewport (`next/dynamic` with `ssr: false` plus an IntersectionObserver).
+It renders on demand (`frameloop="demand"`). If WebGL fails, an error
+boundary shows a message and the list remains.
 
 ---
 
@@ -236,10 +258,17 @@ IntersectionObserver).
 ```
 
 All changes go through pure reducer functions (unit tested). Persistence is
-the `persist` middleware with a `StateStorage` adapter. Today it is
-`localStorage`. A backend would supply another adapter with the same
-interface. The store hydrates on the client after mount, so static HTML never
-mismatches.
+the `persist` middleware with a `StateStorage` adapter:
+`createProgressStore(() => localStorage)` builds the app's `useProgress`.
+A backend would pass another adapter (`getItem`/`setItem`/`removeItem`, sync
+or async) in that one place, and no component changes. Only data is saved,
+under the key `under-the-hood:progress` (version 1, ready for migrations).
+
+The store uses `skipHydration`. `ProgressHydrator` (in the site shell)
+rehydrates it after mount, so static HTML never mismatches, and
+`useProgressHydrated()` lets widgets show "Loading…" instead of a false "0
+done". Widgets: `PartProgress` (visit + "Mark as learned"),
+`StepDoneToggle`, `TeardownProgress`, `QuizBest` and `ProgressDashboard`.
 
 ---
 
