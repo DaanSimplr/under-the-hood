@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* Dark mode follows data-theme on <html>, set before paint by the theme script. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ------------------------------------------------------------------
+   Design tokens. Components use these (through Tailwind or var()),
+   never raw hex values.
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --surface-2: #ecebe6;
+  --fg: #16181d;
+  --muted: #4a5160;
+  --border: #d6d3cb;
+  --accent: #b23c0c;
+  --accent-fg: #ffffff;
+  --focus: #1d4ed8;
+  --warn-bg: #fff4d6;
+  --warn-border: #b98900;
+  --warn-fg: #3d2c00;
+  --danger-bg: #fde8e8;
+  --danger-border: #c62828;
+  --danger-fg: #5c1010;
+  --diagram-body: #e3e1db;
+  --diagram-line: #8a8f99;
+  --diagram-glass: #c9d6e3;
+  --diagram-internal: #b9b4aa;
+
+  /* One color per car system (diagram hotspots, chips). */
+  --sys-engine: #c2410c;
+  --sys-drivetrain: #7c3aed;
+  --sys-brakes: #dc2626;
+  --sys-suspension-steering: #0f766e;
+  --sys-electrical: #a16207;
+  --sys-cooling: #1d4ed8;
+  --sys-fuel-exhaust: #57534e;
+  --sys-body-chassis: #be185d;
+
+  --radius: 0.75rem;
+  color-scheme: light;
+}
+
+/* Dark values. Repeated for the no-JS case (system preference). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1115;
+    --surface: #171a21;
+    --surface-2: #20242d;
+    --fg: #eceef2;
+    --muted: #a8afbd;
+    --border: #2e3440;
+    --accent: #ff8a4c;
+    --accent-fg: #1a0d05;
+    --focus: #8fb0ff;
+    --warn-bg: #2b2210;
+    --warn-border: #d39b00;
+    --warn-fg: #ffe7a8;
+    --danger-bg: #2c1414;
+    --danger-border: #ef5350;
+    --danger-fg: #ffd6d6;
+    --diagram-body: #262a33;
+    --diagram-line: #6b7280;
+    --diagram-glass: #33404f;
+    --diagram-internal: #4a4f5a;
+    --sys-engine: #fb923c;
+    --sys-drivetrain: #a78bfa;
+    --sys-brakes: #f87171;
+    --sys-suspension-steering: #2dd4bf;
+    --sys-electrical: #facc15;
+    --sys-cooling: #60a5fa;
+    --sys-fuel-exhaust: #a8a29e;
+    --sys-body-chassis: #f472b6;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --surface: #171a21;
+  --surface-2: #20242d;
+  --fg: #eceef2;
+  --muted: #a8afbd;
+  --border: #2e3440;
+  --accent: #ff8a4c;
+  --accent-fg: #1a0d05;
+  --focus: #8fb0ff;
+  --warn-bg: #2b2210;
+  --warn-border: #d39b00;
+  --warn-fg: #ffe7a8;
+  --danger-bg: #2c1414;
+  --danger-border: #ef5350;
+  --danger-fg: #ffd6d6;
+  --diagram-body: #262a33;
+  --diagram-line: #6b7280;
+  --diagram-glass: #33404f;
+  --diagram-internal: #4a4f5a;
+  --sys-engine: #fb923c;
+  --sys-drivetrain: #a78bfa;
+  --sys-brakes: #f87171;
+  --sys-suspension-steering: #2dd4bf;
+  --sys-electrical: #facc15;
+  --sys-cooling: #60a5fa;
+  --sys-fuel-exhaust: #a8a29e;
+  --sys-body-chassis: #f472b6;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-focus: var(--focus);
+  --color-warn-bg: var(--warn-bg);
+  --color-warn-border: var(--warn-border);
+  --color-warn-fg: var(--warn-fg);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-border: var(--danger-border);
+  --color-danger-fg: var(--danger-fg);
+  --radius-card: var(--radius);
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* SVG hotspots draw their own ring, see .hotspot */
+svg :focus-visible {
+  outline: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+/* Prose links: underlined so they are not identified by color alone. */
+.prose-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prose-link:hover {
+  color: var(--accent);
+}
+
+/* Glossary term links: dotted, still clearly a link. */
+.term-link {
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.term-link:hover {
+  color: var(--accent);
+}
+
+/* Teardown steps are numbered automatically. */
+.steps {
+  counter-reset: step;
+}
+.step {
+  counter-increment: step;
+}
+.step-number::before {
+  content: counter(step);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
