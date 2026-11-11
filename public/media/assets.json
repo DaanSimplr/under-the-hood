@@ -22,7 +22,7 @@
       "maxSizeKB": 3500,
       "alt": "",
       "brief": "Generic car silhouette in a dark studio, slow orbit, rim light, faint exploded-parts ghosting. No logos.",
-      "status": "placeholder"
+      "status": "generated"
     },
     {
       "id": "explorer-bg-loop",
@@ -38,7 +38,7 @@
       "maxSizeKB": 2500,
       "alt": "",
       "brief": "Abstract blueprint grid with slow drifting light and subtle depth. Sits behind the interactive car diagram, so keep it low-contrast.",
-      "status": "placeholder"
+      "status": "generated"
     },
     {
       "id": "workshop-ambient-loop",
@@ -54,7 +54,7 @@
       "maxSizeKB": 3000,
       "alt": "",
       "brief": "Clean, well-lit garage workbench, shallow depth of field, tools laid out, gentle light movement. Background for teardown guide headers.",
-      "status": "placeholder"
+      "status": "generated"
     },
     {
       "id": "teardown-intro-transition",
@@ -70,16 +70,16 @@
       "maxSizeKB": 1200,
       "alt": "",
       "brief": "Quick stylised 'pull-apart' motion of abstract shapes/panels separating. Plays once when a teardown guide starts.",
-      "status": "placeholder"
+      "status": "generated"
     },
-    { "id": "system-engine-hero", "type": "image", "role": "hero", "path": "media/systems/engine.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Atmospheric close-up of an engine bay", "brief": "Moody engine bay, studio light, generic engine, no brand marks.", "status": "placeholder" },
-    { "id": "system-drivetrain-hero", "type": "image", "role": "hero", "path": "media/systems/drivetrain.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Atmospheric view of a car's drivetrain", "brief": "Gearbox and driveshaft from below, dramatic lighting.", "status": "placeholder" },
-    { "id": "system-brakes-hero", "type": "image", "role": "hero", "path": "media/systems/brakes.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Brake disc and caliper behind a wheel", "brief": "Brake disc and caliper seen through a wheel, warm glow on disc.", "status": "placeholder" },
-    { "id": "system-suspension-hero", "type": "image", "role": "hero", "path": "media/systems/suspension.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Car suspension components", "brief": "Coilover and control arm, clean studio, side light.", "status": "placeholder" },
-    { "id": "system-electrical-hero", "type": "image", "role": "hero", "path": "media/systems/electrical.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Car wiring and battery", "brief": "Battery and wiring loom, cool blue accent light.", "status": "placeholder" },
-    { "id": "system-cooling-hero", "type": "image", "role": "hero", "path": "media/systems/cooling.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Car radiator and cooling hoses", "brief": "Radiator fins and hoses, cool tones, light mist.", "status": "placeholder" },
-    { "id": "system-fuel-exhaust-hero", "type": "image", "role": "hero", "path": "media/systems/fuel-exhaust.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Exhaust system under a car", "brief": "Exhaust pipe and muffler from underneath, warm light.", "status": "placeholder" },
-    { "id": "system-body-chassis-hero", "type": "image", "role": "hero", "path": "media/systems/body-chassis.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Bare car body shell on a stand", "brief": "Bare body-in-white shell, clean factory light.", "status": "placeholder" },
-    { "id": "og-image", "type": "image", "role": "social", "path": "media/og/og-image.png", "aspect": "1.91:1", "resolution": "1200x630", "maxSizeKB": 300, "alt": "Site preview image", "brief": "Hero still with empty space on the left for the site title (title is added in code, not generated).", "status": "placeholder" }
+    { "id": "system-engine-hero", "type": "image", "role": "hero", "path": "media/systems/engine.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Atmospheric close-up of an engine bay", "brief": "Moody engine bay, studio light, generic engine, no brand marks.", "status": "generated" },
+    { "id": "system-drivetrain-hero", "type": "image", "role": "hero", "path": "media/systems/drivetrain.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Atmospheric view of a car's drivetrain", "brief": "Gearbox and driveshaft from below, dramatic lighting.", "status": "generated" },
+    { "id": "system-brakes-hero", "type": "image", "role": "hero", "path": "media/systems/brakes.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Brake disc and caliper behind a wheel", "brief": "Brake disc and caliper seen through a wheel, warm glow on disc.", "status": "generated" },
+    { "id": "system-suspension-hero", "type": "image", "role": "hero", "path": "media/systems/suspension.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Car suspension components", "brief": "Coilover and control arm, clean studio, side light.", "status": "generated" },
+    { "id": "system-electrical-hero", "type": "image", "role": "hero", "path": "media/systems/electrical.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Car wiring and battery", "brief": "Battery and wiring loom, cool blue accent light.", "status": "generated" },
+    { "id": "system-cooling-hero", "type": "image", "role": "hero", "path": "media/systems/cooling.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Car radiator and cooling hoses", "brief": "Radiator fins and hoses, cool tones, light mist.", "status": "generated" },
+    { "id": "system-fuel-exhaust-hero", "type": "image", "role": "hero", "path": "media/systems/fuel-exhaust.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Exhaust system under a car", "brief": "Exhaust pipe and muffler from underneath, warm light.", "status": "generated" },
+    { "id": "system-body-chassis-hero", "type": "image", "role": "hero", "path": "media/systems/body-chassis.webp", "aspect": "21:9", "resolution": "2520x1080", "maxSizeKB": 350, "alt": "Bare car body shell on a stand", "brief": "Bare body-in-white shell, clean factory light.", "status": "generated" },
+    { "id": "og-image", "type": "image", "role": "social", "path": "media/og/og-image.png", "aspect": "1.91:1", "resolution": "1200x630", "maxSizeKB": 300, "alt": "Site preview image", "brief": "Hero still with empty space on the left for the site title (title is added in code, not generated).", "status": "generated" }
   ]
 }

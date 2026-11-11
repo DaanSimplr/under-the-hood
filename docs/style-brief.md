@@ -1,8 +1,9 @@
-# Style brief (stub)
+# Style brief
 
-> **Owner: the media agent.** This file is a placeholder. The media agent
-> fills it in before it generates footage, and the manifest points to it
-> (`"styleBrief": "docs/style-brief.md"`).
+> **Owner: the media agent.** The manifest points here
+> (`"styleBrief": "docs/style-brief.md"`). Every prompt reuses the
+> **style block** below word for word. Final prompts are in
+> [prompt-log.md](./prompt-log.md).
 
 ## Ground rules from the app (do not change)
 
@@ -22,13 +23,128 @@
 - Both light and dark site themes show the media. Mid-tone, moody footage
   works for both.
 
-## To be filled in by the media agent
+## Look and mood
 
-- Look and mood:
-- Palette (the site's accent is a burnt orange, `#b23c0c` light / `#ff8a4c` dark):
-- Lighting:
-- Camera and motion:
-- Subjects per slot:
-- Prompt template:
-- Things to avoid:
-- Encoding settings:
+A premium workshop crossed with a technical museum after closing time. Calm,
+precise, slightly cinematic. Objects are shown like exhibits: clean, unbranded,
+on a dark seamless floor. Photoreal, never cartoon or CGI-toy.
+
+## Palette
+
+- **Base:** deep graphite to near-black, taken from the dark theme
+  (`--bg #0f1115`, `--surface #171a21`, `--surface-2 #20242d`).
+- **One accent:** burnt orange, the site's `--accent` (`#b23c0c` light,
+  `#ff8a4c` dark). Used as a thin rim light or a small glow, on under 10% of
+  the frame.
+- **Metal:** warm highlights on brushed steel and aluminium, cool grey shadows.
+- **System tint:** a hero may carry a faint hint of its `--sys-*` color in the
+  fill light (cool blue for cooling and electrical, warm for brakes and
+  exhaust). Orange stays the only saturated color.
+- Blacks never crush to pure `#000`, highlights never clip. Mid-tone overall,
+  so the image holds up next to both the light and the dark page.
+
+## Lighting
+
+Large soft key light from above and slightly behind. One narrow rim light that
+draws the outline. Gentle falloff into darkness. A light haze is fine. No lens
+flares, no hard specular hot spots, no neon, no colored gels besides the accent.
+
+## Camera and motion
+
+- 50–85 mm look, shallow depth of field, eye level or slightly low.
+- One slow, smooth move per clip: orbit of at most 10°, slow dolly, or a slight
+  push-in. No cuts, no shake, no zoom snaps.
+- Loops: motion lives in the light (a soft sweep), drifting dust or haze, and a
+  barely moving camera. First frame = last frame (the same still is used as
+  start and end frame). If a jump remains, fix it in post with a crossfade or
+  ping-pong.
+
+## Composition (from the page layouts)
+
+The text panel is solid (`bg/90` + blur), so contrast is safe. The goal is that
+the panel does not cover the subject.
+
+| Where                                  | Panel sits                                      | Put the subject                           |
+| -------------------------------------- | ----------------------------------------------- | ----------------------------------------- |
+| Home hero (16:9, cropped to cover)     | left, vertically centred, ≤ 36 rem              | right 55% of frame, centred vertically    |
+| System / teardown headers (21:9, 16:9) | bottom-left, ≤ 42 rem                           | right half, upper two thirds              |
+| System cards on `/systems`             | image shown whole above the title               | subject must still read at ~400 px wide   |
+| Explorer background                    | whole frame, at 60% opacity, behind the diagram | no subject, even texture, no bright spots |
+| `og-image`                             | title added in code on the left                 | left 45% dark and empty, subject right    |
+
+At 375 px the panel covers most of the hero, so the edges of every frame must
+be calm and dark. Keep important detail out of the outer 8%.
+
+## Subjects per slot
+
+| Slot                        | Subject (decorative, no technical claims)                                                                                                                |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `home-hero-loop`            | Generic unbadged coupé/saloon silhouette, three-quarter rear-side view, mostly outline in rim light, faint ghosted parts floating out of focus behind it |
+| `explorer-bg-loop`          | Abstract dark blueprint grid receding in depth, soft light drifting across. No drawings of real parts                                                    |
+| `workshop-ambient-loop`     | Clean workbench, generic hand tools laid out, defocused background, slow light movement                                                                  |
+| `teardown-intro-transition` | Abstract graphite and brushed-metal panels sliding apart from the centre, orange light in the gap. Ends calm                                             |
+| `system-engine-hero`        | Generic engine in a dark bay, soft top light                                                                                                             |
+| `system-drivetrain-hero`    | Gearbox housing and driveshaft from a low angle                                                                                                          |
+| `system-brakes-hero`        | Disc and caliper behind plain wheel spokes, faint warm glow on the disc                                                                                  |
+| `system-suspension-hero`    | Coil spring and damper with a control arm, side light                                                                                                    |
+| `system-electrical-hero`    | Unlabelled battery and tidy wiring loom, cool blue fill                                                                                                  |
+| `system-cooling-hero`       | Radiator fins and hoses, cool tones, light mist                                                                                                          |
+| `system-fuel-exhaust-hero`  | Exhaust pipe and silencer from below, warm light                                                                                                         |
+| `system-body-chassis-hero`  | Bare unpainted body shell on a stand, clean overhead light                                                                                               |
+| `og-image`                  | Crop/variant of the approved home hero still, subject right                                                                                              |
+
+## Prompt template
+
+```
+[SUBJECT from the table] .
+STYLE: premium automotive workshop meets technical museum, calm and precise,
+photoreal, deep graphite and near-black environment, dark seamless floor,
+warm highlights on brushed metal, a single thin burnt-orange (#ff8a4c) rim
+light as the only saturated color, large soft key light from above, gentle
+falloff, light haze, no lens flare, mid-tone exposure with detail in the
+shadows, 50-85mm lens, shallow depth of field.
+CAMERA: [still: static | video: one slow smooth move, e.g. 8 degree orbit].
+COMPOSITION: [where the subject goes, from the layout table], calm dark edges.
+FORMAT: [aspect], [duration for video, seamless loop, last frame equals first].
+NEGATIVE: no logos, no badges, no brand-identifiable design, no licence plates,
+no text, no letters, no numbers, no labels, no people, no hands, no faces,
+no crash or damage, no cartoon, no neon, no lens flare.
+```
+
+## Things to avoid
+
+Logos, badges, signature grilles or lamp shapes, licence plates, any readable
+text or numbers (including on tools, batteries and tyres), people and faces,
+gore, crashes, damage, cartoon or toy looks, fast cuts, camera shake, harsh
+flares, and close-ups precise enough to read as a technical reference.
+
+## Models
+
+Used for the first full set (10-credit trial budget, see
+[prompt-log.md](./prompt-log.md)):
+
+- **Stills:** Soul Cinema, 2k, text-to-image, no reference image. 16:9 comes
+  out at 2048x1152 and 21:9 at 2528x1088. System heroes run as one batch with
+  the same style block.
+- **Video:** only `home-hero-loop` is generated: Seedance 2.0 Mini, 6 s, 720p,
+  `generate_audio: false`, the approved still as both `start_image` and
+  `end_image`, upscaled to 1080p at encode. The other three video slots are
+  built from their stills with ffmpeg (zoom breathing, moving light, panel
+  split).
+- **With a larger budget:** Nano Banana Pro at 2k for stills and Seedance 2.0
+  `std` at 1080p for video, as first planned.
+- **Grade:** Soul Cinema renders this look very dark, so every file gets a
+  linear lift in post (about `x1.2 + 5`).
+
+## Encoding settings
+
+- **MP4:** H.264 High, `yuv420p`, CRF 17 with `maxrate` capped below
+  `maxSizeKB`, `-movflags +faststart`, `-an`, 30 fps.
+- **WebM:** VP9, constant quality CRF 24, `-an`.
+- **Poster:** WebP, quality ~80, from frame 0 of the final encode.
+- **Images:** WebP at the slot's exact resolution (cover-crop, Lanczos),
+  quality stepped down from 94 until under `maxSizeKB`.
+- **`og-image`:** PNG, 1200x630, palette-quantised if needed to stay under
+  300 KB.
+- Lower bitrate before resolution. The teardown transition is trimmed or
+  retimed to 2 s.
