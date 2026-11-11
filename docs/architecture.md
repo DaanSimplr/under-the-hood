@@ -24,7 +24,8 @@ generated media, see [style-brief.md](./style-brief.md).
 **Non-goals for v1**
 
 - No backend, accounts or sync. Progress lives in `localStorage`.
-- No real 3D models. The 3D view uses primitive shapes on purpose.
+- No imported 3D model files. The 3D views are built in code from simple
+  shapes, on purpose.
 - No vehicle-specific data (torque values, part numbers).
 
 ---
@@ -38,7 +39,7 @@ generated media, see [style-brief.md](./style-brief.md).
 | Content     | JSON + MDX in `/content`, validated with Zod            | Typed, fails the build on bad content                                     |
 | MDX         | `@mdx-js/mdx` `evaluate()` in a Server Component        | No runtime MDX cost, custom components (`<Step>`, `<DiagramFocus>`)       |
 | 2D diagrams | Inline SVG + React                                      | Accurate, themable, keyboard-accessible                                   |
-| 3D          | React Three Fiber + drei, lazy-loaded                   | Only loaded when the exploded view scrolls into view                      |
+| 3D          | React Three Fiber + drei, lazy-loaded                   | Only loaded when a 3D view scrolls into view                              |
 | State       | Zustand + `persist` → `localStorage`                    | Storage is an adapter, so a backend can replace it                        |
 | Search      | Fuse.js with a prebuilt index at `/search-index.json`   | Built once at build time, fetched on first search                         |
 | Quality     | ESLint, Prettier, Vitest, Playwright                    | Logic tests plus smoke tests on the built site                            |
@@ -66,6 +67,7 @@ and the App Router gives that with less glue.
     teardowns/page.tsx
     teardowns/[slug]/page.tsx
     explorer/page.tsx
+    car-3d/page.tsx          whole car in 3D that comes apart
     glossary/page.tsx
     quiz/page.tsx            quiz index (added for navigation)
     quiz/[system]/page.tsx
@@ -76,7 +78,9 @@ and the App Router gives that with less glue.
 /components
   media/    MediaSlot (server), VideoLoop, ImageSlot, PlaceholderMedia, StartGuide (transition)
   diagram/  CarDrawing (pure SVG), CarExplorer, PartHotspot, DiagramFocus,
-            SystemDiagrams, ExplodedView (client shell) + ExplodedViewCanvas (lazy R3F chunk)
+            SystemDiagrams, ExplodedView + CarModelExplorer (client shells),
+            ModelStage (shared frame and controls), ExplodedViewCanvas (lazy R3F chunk),
+            shapeGeometry (model shapes to three.js geometry)
   lesson/   lesson.tsx: StepCard, ToolList, SafetyCallout, DifficultyBadge, TorqueSpec, Term
             GlossaryText (auto glossary links), mdxComponents (Step + MDX mapping)
   quiz/     QuizRunner, QuestionCard
@@ -96,7 +100,8 @@ and the App Router gives that with less glue.
   safety.ts    standard safety callout texts
   diagram.ts   diagram geometry, connection map, plain-language locations
   quiz.ts      scoring helpers
-  assemblies/  data for exploded views (brake-corner)
+  assemblies/  data for the 3D views: brake-corner, whole-car (+ car-body, its skin),
+               geometry (pure helpers: bounds, camera fit, authoring shortcuts)
 /scripts/serve-static.mjs   tiny static server for ./out (npm start, e2e)
 /public/media/assets.json    THE CONTRACT with the media agent
 /tests  unit (Vitest)   /e2e  smoke (Playwright)
@@ -227,20 +232,50 @@ server component with no client JS. Its `<title>` describes the location in
 words ("in the engine bay at the front of the car, near the top"). It is used
 in teardown steps and on part pages ("Where it sits").
 
-**ExplodedView** (client) shows one assembly from `lib/assemblies/`.
-The brake corner is: hub with wheel studs, disc, caliper bracket, inner pad,
-outer pad, caliper. Each piece has a rest position, an explode offset and a
-removal order. Unit tests check the order (caliper → pads → bracket → disc,
-hub stays) and the positions (a pad on each face of the disc, hub flange
-inboard). A slider (0–100%) and Assemble/Explode buttons move pieces along
-their offsets. Labels are plain DOM elements positioned each frame by
-projecting their 3D anchor. This keeps them crisp and theme-aware, and avoids
-drei `<Html>` creating extra React roots. An ordered list beside the canvas
-gives the same information as text. The Three.js chunk
-(`ExplodedViewCanvas`) loads only when the view comes within 300px of the
-viewport (`next/dynamic` with `ssr: false` plus an IntersectionObserver).
-It renders on demand (`frameloop="demand"`). If WebGL fails, an error
-boundary shows a message and the list remains.
+**3D models** are data in `lib/assemblies/`: a list of pieces, each made of
+simple shapes (boxes, cylinders, lathe profiles, extruded outlines, coils, or
+a ready-made surface) with a material tone, an explode offset and an optional
+`mirror` flag that draws a twin on the other side of the car. Nothing is
+loaded from a model file. `geometry.ts` holds the pure helpers (bounds, camera
+fit, shortcuts such as `rod` and `box`), so the models can be unit tested
+without three.js.
+
+**ExplodedView** (client) shows one assembly, registered in
+`lib/assemblies/index.ts`. The brake corner is: hub with wheel studs, disc,
+caliper bracket, inner pad, outer pad, caliper. Each piece also has a removal
+order. Unit tests check the order (caliper → pads → bracket → disc, hub stays)
+and the positions (a pad on each face of the disc ring, the disc hat on the
+outboard face of the hub flange, the caliper over both pads). An ordered list
+beside the canvas gives the same information as text.
+
+**CarModelExplorer** (client, on `/car-3d/`) shows `whole-car.ts`: a
+front-engined, front-wheel-drive car with a piece for every part in the
+content, plus bodywork, seats and wheels to make it complete. The body skin
+comes from `car-body.ts`: one smooth surface defined by a few curves, cut into
+panels along a grid. Chips show one system at a time (the rest turns faint),
+"See-through body" fades the bodywork, and selecting a piece in the 3D view or
+in the list opens its name, summary and a link to the part page. Unit tests
+check that every content part has a piece in the right system. The whole-car
+model is imported only by this page. It is not in the assembly registry, so it
+does not appear on part or system pages.
+
+Both use **ModelStage** and **ExplodedViewCanvas**:
+
+- A slider (0–100%) and Assemble/Explode buttons move pieces along their
+  offsets. The pieces glide there, or jump with reduced motion.
+- The camera keeps the whole model in view as it comes apart, and keeps the
+  angle and zoom the visitor chose. "Reset view" puts it back.
+- Pieces can be hovered and selected. Faint pieces let clicks through.
+- Labels are plain DOM elements positioned each frame by projecting their 3D
+  anchor, and stacked when they would overlap. This keeps them crisp and
+  theme-aware, and avoids drei `<Html>` creating extra React roots.
+- Material colors come from the `--model-*` tokens. Lighting is a
+  shadow-casting sun plus a small studio of light panels built in code (no HDR
+  download).
+- The Three.js chunk loads only when the view comes within 300px of the
+  viewport (`next/dynamic` with `ssr: false` plus an IntersectionObserver).
+  It renders on demand (`frameloop="demand"`). If WebGL fails, an error
+  boundary shows a message and the list remains.
 
 ---
 
@@ -286,7 +321,8 @@ dialog (Ctrl/⌘ K or `/`) fetches the file on first open and runs
 
 - Tokens live in `app/globals.css` as CSS variables (`--bg`, `--fg`,
   `--muted`, `--accent`, `--surface`, `--border`, `--focus`, and one
-  `--sys-<id>` per system). They are mapped into Tailwind with `@theme`.
+  `--sys-<id>` per system, and one `--model-<tone>` per 3D material). They are
+  mapped into Tailwind with `@theme`.
 - Dark mode: `data-theme="light|dark"` on `<html>`. A tiny inline script sets
   it before paint, from the saved choice or `prefers-color-scheme`.
 - Focus: a 3px `--focus` outline on every interactive element.
@@ -304,8 +340,8 @@ dialog (Ctrl/⌘ K or `/`) fetches the file on first open and runs
 - System fonts (no font download).
 - Videos never block first paint: the poster is server-rendered, the video is
   attached after hydration and only when in view.
-- Three.js is in its own chunk and only loads on pages with an exploded view,
-  when it scrolls into view.
+- Three.js is in its own chunk and only loads on pages with a 3D view, when
+  it scrolls into view.
 - The search index is fetched only when search opens.
 - Base CSS lives in cascade layers (`@layer base/components`), so Tailwind
   utilities always win. Unlayered element rules would silently override them.
@@ -322,10 +358,11 @@ same page scores about 81.
 
 - **Vitest** (`tests/`): content validation and cross-refs, asset resolution
   (placeholder rules, unknown ids), progress reducers, quiz scoring, search,
-  glossary linking, aspect parsing, assembly order.
+  glossary linking, aspect parsing, assembly order, 3D model geometry and the
+  whole-car model.
 - **Playwright** (`e2e/`): runs against the static export (`out/`) on a small
   Node static server. It covers home, systems, a part page, a teardown, the
-  explorer (mouse and keyboard), a quiz, search, the theme toggle, and no
+  explorer (mouse and keyboard), the 3D car, a quiz, search, the theme toggle, and no
   horizontal scroll at 375px.
 
 ---

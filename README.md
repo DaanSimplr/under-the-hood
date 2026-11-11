@@ -5,7 +5,8 @@ apart. It is for curious beginners and hobbyists.
 
 - Next.js 16 (App Router, static export), TypeScript, Tailwind CSS 4
 - Content in `/content` (JSON + MDX), validated with Zod
-- SVG car explorer and a lazy-loaded React Three Fiber exploded view
+- SVG car explorer, and lazy-loaded React Three Fiber views: a whole car that
+  comes apart and an exploded brake corner
 - Progress in `localStorage` (Zustand), search with a prebuilt Fuse.js index
 
 ## Run it

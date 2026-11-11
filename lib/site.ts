@@ -7,6 +7,7 @@ export const site = {
 export const navItems = [
   { href: "/systems/", label: "Systems" },
   { href: "/explorer/", label: "Explorer" },
+  { href: "/car-3d/", label: "3D car" },
   { href: "/teardowns/", label: "Teardowns" },
   { href: "/glossary/", label: "Glossary" },
   { href: "/quiz/", label: "Quiz" },

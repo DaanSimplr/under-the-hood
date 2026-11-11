@@ -108,6 +108,32 @@ test.describe("explorer", () => {
     await page.getByRole("button", { name: "Explode", exact: true }).click();
     await expect(view.getByRole("slider")).toHaveValue("100");
   });
+
+  test("the 3D car loads, and its parts list opens part details", async ({ page }) => {
+    await page.goto("/car-3d/");
+    const model = page.getByTestId("car-model");
+    // Either the WebGL canvas, or the graceful fallback if WebGL is unavailable.
+    await expect(model.locator("canvas, :text('could not start')").first()).toBeVisible({
+      timeout: 15_000,
+    });
+    const listButton = model.locator('[data-piece="alternator"]');
+    await listButton.click();
+    const details = page.getByTestId("car-model-details");
+    const heading = details.getByRole("heading", { name: "Alternator" });
+    await expect(heading).toBeFocused();
+    await expect(details.getByRole("link", { name: /Read about the alternator/ })).toHaveAttribute(
+      "href",
+      "/parts/alternator/",
+    );
+    await page.keyboard.press("Escape");
+    await expect(heading).toHaveCount(0);
+    await expect(listButton).toBeFocused();
+    await model.getByRole("button", { name: "Brakes", exact: true }).click();
+    await expect(model.locator('[data-piece="brake-discs"]')).toBeVisible();
+    await expect(listButton).toHaveCount(0);
+    await model.getByRole("button", { name: "Explode", exact: true }).click();
+    await expect(model.getByRole("slider")).toHaveValue("100");
+  });
 });
 
 test.describe("progress, quiz and search", () => {
@@ -177,6 +203,7 @@ test.describe("accessibility", () => {
     "/parts/alternator/",
     "/teardowns/replace-front-brake-pads/",
     "/explorer/",
+    "/car-3d/",
     "/quiz/engine/",
     "/glossary/",
     "/progress/",
@@ -217,6 +244,7 @@ test.describe("mobile @mobile", () => {
     "/parts/strut/",
     "/teardowns/replace-front-brake-pads/",
     "/explorer/",
+    "/car-3d/",
     "/quiz/cooling/",
     "/progress/",
     "/glossary/",

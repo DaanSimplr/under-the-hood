@@ -1,26 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { assemblies, assemblyForPart, ASSEMBLY_IDS } from "@/lib/assemblies";
-import { brakeCorner } from "@/lib/assemblies/brake-corner";
-import type { AssemblyPiece, Shape } from "@/lib/assemblies/types";
+import { brakeCorner, DISC_RING, FLANGE_FACE } from "@/lib/assemblies/brake-corner";
+import { pieceBounds } from "@/lib/assemblies/geometry";
 import { getParts } from "@/lib/content";
 import { buildConnections, describeLocation } from "@/lib/diagram";
 
 const piece = (id: string) => brakeCorner.pieces.find((p) => p.id === id)!;
-
-/** X range (along the axle) covered by a piece's shapes at rest. */
-function xRange(p: AssemblyPiece): [number, number] {
-  const extent = (s: Shape) => {
-    const half =
-      s.kind === "box"
-        ? s.size[0] / 2
-        : s.rotation?.[2]
-          ? s.args[2] / 2 // cylinder turned to lie along X: its height is the X extent
-          : Math.max(s.args[0], s.args[1]);
-    return [s.position[0] - half, s.position[0] + half] as const;
-  };
-  const all = p.shapes.map(extent);
-  return [Math.min(...all.map((e) => e[0])), Math.max(...all.map((e) => e[1]))];
-}
+/** Range along the axle (X) covered by a piece at rest. */
+const axleRange = (id: string) => {
+  const b = pieceBounds(piece(id));
+  return [b.min[0], b.max[0]] as const;
+};
 
 describe("brake corner assembly", () => {
   it("lists every piece once with a removal order starting at 1", () => {
@@ -39,21 +29,28 @@ describe("brake corner assembly", () => {
     expect(piece("hub").explodeOffset).toEqual([0, 0, 0]);
   });
 
-  it("puts a pad on each face of the disc, inboard pad on the hub side", () => {
-    const [discIn, discOut] = xRange(piece("disc"));
-    const [, innerPadOut] = xRange(piece("inner-pad"));
-    const [outerPadIn] = xRange(piece("outer-pad"));
-    // The disc's friction ring is the thin shape; the pads sit just outside it.
-    expect(innerPadOut).toBeLessThanOrEqual(0.2 - 0.06 + 1e-9);
-    expect(outerPadIn).toBeGreaterThanOrEqual(0.2 + 0.06 - 1e-9);
-    expect(discIn).toBeLessThan(discOut);
+  it("puts a pad on each face of the disc ring, inboard pad on the hub side", () => {
+    const [, innerPadOut] = axleRange("inner-pad");
+    const [outerPadIn] = axleRange("outer-pad");
+    expect(innerPadOut).toBeCloseTo(DISC_RING.inboard);
+    expect(outerPadIn).toBeCloseTo(DISC_RING.outboard);
+    expect(DISC_RING.inboard).toBeLessThan(DISC_RING.outboard);
   });
 
-  it("has the hub flange inboard of the disc ring", () => {
-    const hub = piece("hub");
-    const flangeOnly = { ...hub, shapes: [hub.shapes[0]!] }; // first shape is the flange
-    const [, flangeOut] = xRange(flangeOnly);
-    expect(flangeOut).toBeLessThan(0.2 - 0.06);
+  it("sits the disc hat on the outboard face of the hub flange, over the studs", () => {
+    const [discIn, discOut] = axleRange("disc");
+    const [, studTips] = axleRange("hub");
+    // The friction ring is inboard of the flange face; the hat is outboard of it.
+    expect(discIn).toBeCloseTo(DISC_RING.inboard);
+    expect(DISC_RING.outboard).toBeLessThan(FLANGE_FACE);
+    expect(discOut).toBeGreaterThan(FLANGE_FACE);
+    expect(studTips).toBeGreaterThan(discOut);
+  });
+
+  it("wraps the caliper over both pads", () => {
+    const [caliperIn, caliperOut] = axleRange("caliper");
+    expect(caliperIn).toBeLessThan(axleRange("inner-pad")[0]);
+    expect(caliperOut).toBeGreaterThan(axleRange("outer-pad")[1]);
   });
 
   it("explodes the disc outboard along the axle and the caliper upward", () => {

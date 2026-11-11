@@ -38,6 +38,19 @@
   --sys-fuel-exhaust: #57534e;
   --sys-body-chassis: #be185d;
 
+  /* Material colors of the 3D models. The same in light and dark mode. */
+  --model-steel: #a9b0ba;
+  --model-cast-iron: #7b8089;
+  --model-aluminium: #c8cdd4;
+  --model-dark: #3b4048;
+  --model-plastic: #565c66;
+  --model-rubber: #23262b;
+  --model-friction: #8c6a4a;
+  --model-fabric: #6f747d;
+  --model-paint: #48688c;
+  --model-glass: #a9cbe0;
+  --model-lamp: #f1f3f5;
+
   --radius: 0.75rem;
   color-scheme: light;
 }
