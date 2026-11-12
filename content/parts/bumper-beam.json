@@ -7,6 +7,7 @@
   "whatItDoes": "It spreads crash forces across the front of the car and into the crumple zones, and protects the radiator and lights in small knocks.",
   "howItWorks": "The beam is usually steel or aluminium and bolts to crash boxes on the ends of the main frame rails. Those boxes fold up in a controlled way in a low-speed impact, so they can be replaced without repairing the main structure.",
   "location": "bumper-beam",
+  "heroSlot": "part-bumper-beam-hero",
   "connectsTo": ["radiator", "subframe"],
   "failureSymptoms": [
     "The bumper cover sits unevenly after a knock",

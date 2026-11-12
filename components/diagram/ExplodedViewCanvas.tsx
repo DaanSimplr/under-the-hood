@@ -216,7 +216,7 @@ function Stage({
     const rest = modelBounds(pieces, 0);
     const apart = modelBounds(pieces, 1);
     const reach = boundsRadius(apart) + Math.hypot(...boundsCenter(apart));
-    return { rest, apart, reach };
+    return { rest, apart, reach, floor: Math.min(rest.min[1], apart.min[1]) };
   }, [pieces]);
 
   // The canvas only draws on demand, so ask for a frame whenever something changed.
@@ -290,7 +290,7 @@ function Stage({
     });
   });
 
-  const { rest, reach } = extent;
+  const { rest, reach, floor } = extent;
   return (
     <>
       <ambientLight intensity={0.35} />
@@ -339,7 +339,7 @@ function Stage({
           rotation-y={Math.PI}
         />
       </Environment>
-      <mesh rotation-x={-Math.PI / 2} position-y={rest.min[1] - 0.002} receiveShadow>
+      <mesh rotation-x={-Math.PI / 2} position-y={floor - 0.002} receiveShadow>
         <planeGeometry args={[reach * 6, reach * 6]} />
         <shadowMaterial transparent opacity={0.2} />
       </mesh>

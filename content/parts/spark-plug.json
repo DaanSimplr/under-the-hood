@@ -7,6 +7,7 @@
   "whatItDoes": "Each cylinder of a petrol engine has a spark plug. It fires at exactly the right moment in every cycle to start combustion. Diesel engines don't use spark plugs: they light their fuel by squeezing the air until it is hot enough.",
   "howItWorks": "An ignition coil builds up a very high voltage and sends it to the plug. The voltage jumps a small gap between the plug's two electrodes inside the cylinder and makes a spark. The engine computer (ECU) times the spark based on engine speed and load.",
   "location": "spark-plug",
+  "heroSlot": "part-spark-plug-hero",
   "connectsTo": ["engine-block", "battery"],
   "failureSymptoms": [
     "Rough idle or the engine shaking",

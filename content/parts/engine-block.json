@@ -7,6 +7,7 @@
   "whatItDoes": "It is the engine's frame. Pistons move up and down inside its cylinders, and the crankshaft spins in its lower half. Almost everything else on the engine bolts to it: the cylinder head on top, the oil pan underneath, and accessories like the alternator and water pump on the sides.",
   "howItWorks": "Fuel and air burn above each piston and push it down the cylinder. Connecting rods link the pistons to the crankshaft, which turns that up-and-down push into rotation. Passages cast into the block carry coolant around the cylinders and oil to the bearings, so the block also helps keep the engine cool and lubricated.",
   "location": "engine-block",
+  "heroSlot": "part-engine-block-hero",
   "connectsTo": [
     "spark-plug",
     "timing-belt",

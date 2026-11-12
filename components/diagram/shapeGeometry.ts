@@ -22,10 +22,13 @@ const ROUND_SEGMENTS = 48;
 const toVectors = (points: Vec2[]) => points.map(([x, y]) => new Vector2(x, y));
 
 /** Sharp-cornered lathe: one band per profile segment, so each face keeps its own shading. */
-function sharpLathe(profile: Vec2[]): BufferGeometry {
+function sharpLathe(profile: Vec2[], start: number, length: number): BufferGeometry {
   const bands = profile
     .slice(1)
-    .map((point, i) => new LatheGeometry(toVectors([profile[i]!, point]), ROUND_SEGMENTS));
+    .map(
+      (point, i) =>
+        new LatheGeometry(toVectors([profile[i]!, point]), ROUND_SEGMENTS, start, length),
+    );
   const merged = mergeGeometries(bands);
   bands.forEach((band) => band.dispose());
   return merged;
@@ -50,10 +53,12 @@ export function buildGeometry(shape: Shape): BufferGeometry {
     }
     case "cylinder":
       return new CylinderGeometry(...shape.args, ROUND_SEGMENTS);
-    case "lathe":
+    case "lathe": {
+      const [start, length] = (shape.sweep ?? [0, 360]).map((deg) => (deg * Math.PI) / 180);
       return shape.smooth
-        ? new LatheGeometry(toVectors(shape.profile), ROUND_SEGMENTS)
-        : sharpLathe(shape.profile);
+        ? new LatheGeometry(toVectors(shape.profile), ROUND_SEGMENTS, start, length)
+        : sharpLathe(shape.profile, start!, length!);
+    }
     case "extrude": {
       const outline = new OutlineShape(toVectors(shape.outline));
       for (const hole of shape.holes ?? []) outline.holes.push(new Path(toVectors(hole)));

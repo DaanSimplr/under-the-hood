@@ -40,6 +40,7 @@ from other pages use it.
      "whatItDoes": "A short paragraph: its job in the car.",
      "howItWorks": "A short paragraph: how it does that job.",
      "location": "oil-pump",
+     "heroSlot": "part-oil-pump-hero",
      "connectsTo": ["engine-block"],
      "failureSymptoms": ["Low oil pressure warning light"],
      "removalDifficulty": 4,
@@ -54,6 +55,7 @@ from other pages use it.
    | ------------------- | ------------------------------------------------------------------------- |
    | `systemId`          | One of the 8 system ids.                                                  |
    | `location`          | A hotspot id in `content/hotspots.json` (step 3).                         |
+   | `heroSlot`          | A slot id in `public/media/assets.json` (see [Media](#media)).            |
    | `connectsTo`        | Other part ids. Links are shown both ways, so list each pair once.        |
    | `removalDifficulty` | 1 (beginner) to 5 (expert).                                               |
    | `relatedTeardowns`  | Teardown slugs.                                                           |
@@ -135,6 +137,9 @@ it is "not needed for this job". Extra topics: `brake-dust`, `eye-protection`,
 | `<TorqueSpec fastener="…" range="…" />`    | Always says "see your vehicle's manual". `range` is optional and must be a broad typical range. |
 | `<Term id="…">word</Term>`                 | Links a word to the glossary entry.                                                             |
 
+`assembly` can be `brake-corner`, `engine`, `cylinder`, `drivetrain` or
+`clutch-gearbox`.
+
 Comments use MDX syntax: `{/* TODO verify: … */}`. They are not shown on the
 site.
 
@@ -190,7 +195,7 @@ and dark), a JSON file in `content/systems/`, a quiz, and a hero media slot.
 
 ## Media
 
-Content never contains media paths. Systems and guides point at a slot id
+Content never contains media paths. Systems, parts and guides point at a slot id
 (`heroSlot`). Slots live in `public/media/assets.json`. To add one, append it
 with `"status": "placeholder"` and a one-line `"brief"`, then reference its id.
 Never rename or remove an existing slot. See [architecture.md](./architecture.md#5-media-layer-the-contract).

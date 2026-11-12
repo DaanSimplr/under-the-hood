@@ -7,6 +7,7 @@
   "whatItDoes": "Together with the seatbelts, it protects people's heads and chests in a collision. The driver airbag sits in the steering wheel; others are in the dashboard, seats, roof rails and doors.",
   "howItWorks": "Crash sensors report to an airbag control unit. If it decides the crash is severe enough, it fires an igniter that sets off a gas generator. The bag inflates in a fraction of a second and then deflates through vents.",
   "location": "airbag-module",
+  "heroSlot": "part-airbag-module-hero",
   "connectsTo": ["steering-rack", "battery"],
   "failureSymptoms": [
     "The airbag warning light stays on",

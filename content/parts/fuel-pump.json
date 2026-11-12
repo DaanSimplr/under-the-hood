@@ -7,6 +7,7 @@
   "whatItDoes": "It supplies fuel to the engine at the pressure the injectors need.",
   "howItWorks": "An electric motor sitting in the fuel drives a small pump, and the fuel around it keeps it cool. Many direct-injection petrol engines also have a second, mechanical high-pressure pump on the engine. The in-tank pump is often reached through an access panel under the rear seat, or from below with the tank lowered.",
   "location": "fuel-pump",
+  "heroSlot": "part-fuel-pump-hero",
   "connectsTo": ["battery", "engine-block"],
   "failureSymptoms": [
     "The engine cranks but won't start",

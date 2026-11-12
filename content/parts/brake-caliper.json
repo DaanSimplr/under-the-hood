@@ -7,6 +7,7 @@
   "whatItDoes": "The caliper turns fluid pressure from the brake pedal into a strong clamping force on the disc.",
   "howItWorks": "Pressing the pedal pushes brake fluid through the brake lines. That fluid pushes a piston (or several) out of the caliper, forcing the pads onto the disc. Most cars use a 'floating' caliper: one piston pushes the inner pad, and the caliper body slides on guide pins to pull the outer pad in. The caliper is held by a bracket bolted to the steering knuckle.",
   "location": "brake-caliper",
+  "heroSlot": "part-brake-caliper-hero",
   "connectsTo": ["brake-pads", "brake-disc", "wheel-hub"],
   "failureSymptoms": [
     "The car pulls to one side when braking",

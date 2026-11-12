@@ -7,6 +7,7 @@
   "whatItDoes": "It blocks the flow of coolant to the radiator while the engine is cold, so the engine warms up quickly. Once the engine is hot, it opens and lets coolant through.",
   "howItWorks": "Inside is a wax pellet that expands as it heats up. At the thermostat's rated temperature, the expanding wax pushes the valve open. Some modern engines use an electronically controlled thermostat that the ECU can adjust.",
   "location": "thermostat",
+  "heroSlot": "part-thermostat-hero",
   "connectsTo": ["water-pump", "radiator", "engine-block"],
   "failureSymptoms": [
     "The temperature gauge stays low and the heater blows cold (stuck open)",

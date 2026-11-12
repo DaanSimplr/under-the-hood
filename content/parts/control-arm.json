@@ -7,6 +7,7 @@
   "whatItDoes": "It locates the wheel, stopping it from moving forward, backward or sideways, while still letting it travel up and down.",
   "howItWorks": "The inner end pivots on rubber bushings mounted to the subframe or body. The outer end carries a ball joint that connects to the steering knuckle, so the wheel can move up and down and also turn for steering.",
   "location": "control-arm",
+  "heroSlot": "part-control-arm-hero",
   "connectsTo": ["subframe", "wheel-hub", "strut"],
   "failureSymptoms": [
     "Clunks over bumps or when braking",

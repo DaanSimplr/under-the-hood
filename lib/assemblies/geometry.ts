@@ -295,6 +295,37 @@ export function roundedRect(cx: number, cy: number, w: number, h: number, r: num
   );
 }
 
+/**
+ * The outline of a belt pulled tight around two wheels: the far side of each
+ * circle, joined by the two straight runs between them.
+ */
+export function wrapOutline(a: Vec2, ra: number, b: Vec2, rb: number, segments = 24): Vec2[] {
+  const towards = Math.atan2(b[1] - a[1], b[0] - a[0]);
+  const spread = Math.acos((ra - rb) / Math.hypot(b[0] - a[0], b[1] - a[1]));
+  const arc = (c: Vec2, r: number, from: number, to: number) =>
+    Array.from({ length: segments + 1 }, (_, i) => {
+      const angle = lerp(from, to, i / segments);
+      return [c[0] + r * Math.cos(angle), c[1] + r * Math.sin(angle)] as Vec2;
+    });
+  return [
+    ...arc(a, ra, towards + spread, towards + 2 * Math.PI - spread),
+    ...arc(b, rb, towards - spread, towards + spread),
+  ];
+}
+
+/** The outline of a gear wheel around the origin. `radius` is halfway up the teeth. */
+export function gearOutline(radius: number, teeth: number): Vec2[] {
+  const tooth = Math.min(radius * 0.1, 0.06);
+  const step = (Math.PI * 2) / teeth;
+  const at = (r: number, angle: number): Vec2 => [r * Math.cos(angle), r * Math.sin(angle)];
+  return Array.from({ length: teeth }, (_, i) => [
+    at(radius - tooth, i * step),
+    at(radius + tooth, (i + 0.15) * step),
+    at(radius + tooth, (i + 0.5) * step),
+    at(radius - tooth, (i + 0.65) * step),
+  ]).flat();
+}
+
 /** Copies of shapes moved by an offset. */
 export function shift(shapes: Shape[], [dx, dy, dz]: Vec3): Shape[] {
   return shapes.map((s) => {

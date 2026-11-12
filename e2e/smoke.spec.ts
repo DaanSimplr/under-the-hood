@@ -34,6 +34,7 @@ test.describe("pages", () => {
     await page.goto("/parts/brake-caliper/");
     await expect(page.getByRole("heading", { level: 1, name: "Brake caliper" })).toBeVisible();
     await expect(page.locator('[data-diagram-focus="brake-caliper"]')).toBeVisible();
+    await expect(page.locator('[data-media-slot="part-brake-caliper-hero"]')).toBeVisible();
     await expect(page.locator('a.term-link[href="/glossary/#brake-fluid"]').first()).toBeVisible();
   });
 
@@ -108,6 +109,27 @@ test.describe("explorer", () => {
     await page.getByRole("button", { name: "Explode", exact: true }).click();
     await expect(view.getByRole("slider")).toHaveValue("100");
   });
+
+  for (const [path, titles] of [
+    ["/systems/engine/", ["Four-cylinder engine", "One cylinder"]],
+    ["/systems/drivetrain/", ["Front-wheel-drive drivetrain", "Clutch and gearbox"]],
+  ] as const) {
+    test(`${path} has an overview and a close-up exploded view`, async ({ page }) => {
+      await page.goto(path);
+      const views = page.getByTestId("exploded-view");
+      await expect(views).toHaveCount(2);
+      for (const title of titles)
+        await expect(page.getByRole("heading", { name: `${title}: exploded view` })).toBeVisible();
+      const closeUp = views.nth(1);
+      await closeUp.scrollIntoViewIfNeeded();
+      await expect(closeUp.locator("canvas, :text('could not start')").first()).toBeVisible({
+        timeout: 15_000,
+      });
+      await expect(closeUp.getByRole("listitem").first()).toContainText("1.");
+      await closeUp.getByRole("button", { name: "Explode", exact: true }).click();
+      await expect(closeUp.getByRole("slider")).toHaveValue("100");
+    });
+  }
 
   test("the 3D car loads, and its parts list opens part details", async ({ page }) => {
     await page.goto("/car-3d/");

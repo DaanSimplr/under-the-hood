@@ -7,6 +7,7 @@
   "whatItDoes": "It gives the brake pads a hard, flat surface to grip. As the pads clamp it, friction turns the car's movement into heat, and the disc soaks up that heat and sheds it into the air.",
   "howItWorks": "The disc sits between the wheel hub and the wheel, so it turns at wheel speed. Many front discs are 'vented': two faces with cooling vanes between them that pump air through as the disc spins. Discs wear thinner over time, and each one has a minimum thickness stamped on it.",
   "location": "brake-disc",
+  "heroSlot": "part-brake-disc-hero",
   "connectsTo": ["wheel-hub", "brake-pads", "brake-caliper"],
   "failureSymptoms": [
     "Vibration through the steering wheel or brake pedal when braking",

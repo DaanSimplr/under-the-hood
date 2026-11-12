@@ -7,6 +7,7 @@
   "whatItDoes": "It gives heavy, highly loaded parts a stiff place to mount, and spreads their forces into the body.",
   "howItWorks": "Most modern cars have a unibody: the body itself is the main structure, with no separate chassis. Subframes bolt to reinforced points of that body, often through rubber bushes that cut noise and vibration. Dropping the subframe often brings the engine, gearbox or suspension down with it.",
   "location": "subframe",
+  "heroSlot": "part-subframe-hero",
   "connectsTo": ["control-arm", "steering-rack", "engine-block", "transmission", "strut"],
   "failureSymptoms": [
     "Clunks when accelerating or braking (worn mounts)",

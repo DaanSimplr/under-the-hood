@@ -7,6 +7,7 @@
   "whatItDoes": "Hot coolant from the engine flows through the radiator, gives its heat to the air, and goes back to the engine cooler.",
   "howItWorks": "Coolant runs through many thin tubes linked by metal fins. Air flows over the fins while driving, or an electric fan pulls it through when the car is standing still. The pressure cap raises the coolant's boiling point so it can run hotter without boiling.",
   "location": "radiator",
+  "heroSlot": "part-radiator-hero",
   "connectsTo": ["water-pump", "thermostat", "bumper-beam"],
   "failureSymptoms": [
     "Engine temperature climbing, especially in traffic",

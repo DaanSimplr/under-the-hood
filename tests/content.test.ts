@@ -61,6 +61,12 @@ describe("reference checks", () => {
     expect(checkReferences(broken).join("\n")).toMatch(/heroSlot "not-a-slot"/);
   });
 
+  it("reports an unknown part hero slot", () => {
+    const broken = structuredClone(content);
+    broken.parts[0]!.heroSlot = "not-a-slot";
+    expect(checkReferences(broken).join("\n")).toMatch(/part ".+": heroSlot "not-a-slot"/);
+  });
+
   it("reports duplicate step ids and unknown DiagramFocus parts", () => {
     const broken = structuredClone(content);
     broken.teardowns[0]!.body =

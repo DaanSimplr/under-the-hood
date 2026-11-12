@@ -7,6 +7,7 @@
   "whatItDoes": "Pressing the clutch pedal separates the engine from the gearbox. That lets the engine keep running while the car is stopped, and lets you change gear without grinding. Releasing the pedal joins them again smoothly.",
   "howItWorks": "A friction disc sits between the engine's flywheel and a spring-loaded pressure plate. With the pedal up, the springs clamp the disc so the engine and gearbox turn together. Pressing the pedal pushes a release bearing that takes the clamping force away, so the disc can slip free. Automatic cars use a torque converter or automated clutches instead.",
   "location": "clutch",
+  "heroSlot": "part-clutch-hero",
   "connectsTo": ["engine-block", "transmission"],
   "failureSymptoms": [
     "Engine revs rise but the car doesn't speed up (slipping)",

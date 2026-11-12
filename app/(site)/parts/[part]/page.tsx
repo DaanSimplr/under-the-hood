@@ -5,6 +5,7 @@ import { DiagramFocus } from "@/components/diagram/DiagramFocus";
 import { ExplodedView } from "@/components/diagram/ExplodedView";
 import { GlossaryText } from "@/components/lesson/GlossaryText";
 import { DifficultyBadge, ToolList } from "@/components/lesson/lesson";
+import { MediaSlot } from "@/components/media/MediaSlot";
 import { PartProgress } from "@/components/progress/PartProgress";
 import { Container } from "@/components/ui/Container";
 import {
@@ -53,23 +54,31 @@ export default async function PartPage({ params }: Props) {
         ]}
       />
 
-      <header className="mt-4 max-w-3xl">
-        <div className="flex flex-wrap items-center gap-2">
-          <SystemChip systemId={system.id} name={system.name} />
-          <DifficultyBadge level={p.removalDifficulty} label="Removal difficulty" />
-        </div>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{p.name}</h1>
-        {p.aka.length > 0 && (
-          <p className="mt-1 text-muted">
-            Also called: <span className="text-fg">{p.aka.join(", ")}</span>
+      <header className="mt-4 grid items-center gap-8 lg:grid-cols-2">
+        <div className="max-w-3xl">
+          <div className="flex flex-wrap items-center gap-2">
+            <SystemChip systemId={system.id} name={system.name} />
+            <DifficultyBadge level={p.removalDifficulty} label="Removal difficulty" />
+          </div>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{p.name}</h1>
+          {p.aka.length > 0 && (
+            <p className="mt-1 text-muted">
+              Also called: <span className="text-fg">{p.aka.join(", ")}</span>
+            </p>
+          )}
+          <p className="mt-4 text-lg">
+            <GlossaryText text={p.summary} partId={p.id} seen={seen} />
           </p>
-        )}
-        <p className="mt-4 text-lg">
-          <GlossaryText text={p.summary} partId={p.id} seen={seen} />
-        </p>
-        <div className="mt-4">
-          <PartProgress partId={p.id} />
+          <div className="mt-4">
+            <PartProgress partId={p.id} />
+          </div>
         </div>
+        <MediaSlot
+          id={p.heroSlot}
+          priority
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="rounded-card border border-border"
+        />
       </header>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">

@@ -7,6 +7,7 @@
   "whatItDoes": "Once the engine is running, the alternator supplies the car's electricity and tops the battery back up.",
   "howItWorks": "The accessory belt spins the alternator's pulley. Inside, a spinning electromagnet (the rotor) turns within fixed copper windings (the stator) and makes alternating current. Diodes turn that into direct current, and a voltage regulator keeps the output at roughly 13.5 to 14.5 volts.",
   "location": "alternator",
+  "heroSlot": "part-alternator-hero",
   "connectsTo": ["battery", "engine-block", "starter-motor"],
   "failureSymptoms": [
     "Battery warning light while driving",

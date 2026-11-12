@@ -7,6 +7,7 @@
   "whatItDoes": "The coil spring carries the car's weight and lets the wheel move over bumps. The shock absorber (damper) inside slows that movement so the car settles instead of bouncing. In a MacPherson strut, the strut also guides the wheel and forms part of the steering pivot.",
   "howItWorks": "The damper is an oil-filled tube with a piston inside. As the suspension moves, oil is forced through small valves in the piston. That resists the movement and turns it into heat. The spring sits around the damper between two seats, and the top mount bolts into the body.",
   "location": "strut",
+  "heroSlot": "part-strut-hero",
   "connectsTo": ["control-arm", "wheel-hub", "subframe"],
   "failureSymptoms": [
     "The car keeps bouncing after a bump",

@@ -7,6 +7,7 @@
   "whatItDoes": "It keeps coolant moving so heat is carried away from the engine to the radiator.",
   "howItWorks": "An impeller (a small wheel with curved vanes) spins inside a housing on the engine and pushes coolant through passages in the block and cylinder head. Most water pumps are driven by the timing belt or the accessory belt; some newer engines use electric pumps.",
   "location": "water-pump",
+  "heroSlot": "part-water-pump-hero",
   "connectsTo": ["engine-block", "radiator", "thermostat", "timing-belt"],
   "failureSymptoms": [
     "Coolant dripping from a small 'weep hole' near the pump",

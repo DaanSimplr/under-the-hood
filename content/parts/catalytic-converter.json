@@ -7,6 +7,7 @@
   "whatItDoes": "It cleans the exhaust before it leaves the car.",
   "howItWorks": "Inside a steel shell is a honeycomb coated with precious metals such as platinum, palladium and rhodium. As hot exhaust passes through, these metals help turn carbon monoxide, unburned fuel and nitrogen oxides into carbon dioxide, water and nitrogen. It only works when hot, which is why it sits close to the engine. Oxygen sensors before and after it let the ECU check that it is working.",
   "location": "catalytic-converter",
+  "heroSlot": "part-catalytic-converter-hero",
   "connectsTo": ["engine-block", "muffler"],
   "failureSymptoms": [
     "Check-engine light with a 'catalyst efficiency' fault code",

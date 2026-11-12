@@ -7,6 +7,7 @@
   "whatItDoes": "It brings the exhaust noise down to a comfortable, legal level.",
   "howItWorks": "Exhaust gas leaves the engine in loud pulses. Inside the muffler, chambers, perforated tubes and sound-absorbing packing make those pulses bounce around, cancel each other out and lose energy before the gas leaves through the tailpipe.",
   "location": "muffler",
+  "heroSlot": "part-muffler-hero",
   "connectsTo": ["catalytic-converter"],
   "failureSymptoms": [
     "A much louder exhaust",

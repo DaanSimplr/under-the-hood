@@ -100,7 +100,8 @@ and the App Router gives that with less glue.
   safety.ts    standard safety callout texts
   diagram.ts   diagram geometry, connection map, plain-language locations
   quiz.ts      scoring helpers
-  assemblies/  data for the 3D views: brake-corner, whole-car (+ car-body, its skin),
+  assemblies/  data for the 3D views: brake-corner, engine, cylinder, drivetrain,
+               clutch-gearbox, whole-car (+ car-body, its skin),
                geometry (pure helpers: bounds, camera fit, authoring shortcuts)
 /scripts/serve-static.mjs   tiny static server for ./out (npm start, e2e)
 /public/media/assets.json    THE CONTRACT with the media agent
@@ -116,19 +117,20 @@ with a Zod schema from `lib/schemas.ts`. After parsing, the loader checks the
 links between files. A bad id **fails the build** with a message that names the
 file and the field.
 
-| Type     | Source                    | Key fields                                                                                                                                                                   |
-| -------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| System   | `content/systems/*.json`  | `id, name, summary, order, heroSlot, partIds[]`                                                                                                                              |
-| Part     | `content/parts/*.json`    | `id, name, systemId, aka[], summary, whatItDoes, howItWorks, location, connectsTo[], failureSymptoms[], removalDifficulty, toolsNeeded[], safetyNotes[], relatedTeardowns[]` |
-| Teardown | `content/teardowns/*.mdx` | frontmatter `slug, title, systemId, partIds[], difficulty, timeEstimate, tools[], safety[], heroSlot?` + MDX body of `<Step>`s                                               |
-| Quiz     | `content/quizzes/*.json`  | `systemId, questions[{ prompt, options[], answerIndex, explanation, partId? }]`                                                                                              |
-| Glossary | `content/glossary.json`   | `[{ id, term, aka[], definition, partId? }]`                                                                                                                                 |
-| Hotspots | `content/hotspots.json`   | `[{ id, x, y }]` in the car diagram's SVG coordinates                                                                                                                        |
+| Type     | Source                    | Key fields                                                                                                                                                                             |
+| -------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System   | `content/systems/*.json`  | `id, name, summary, order, heroSlot, partIds[]`                                                                                                                                        |
+| Part     | `content/parts/*.json`    | `id, name, systemId, aka[], summary, whatItDoes, howItWorks, location, heroSlot, connectsTo[], failureSymptoms[], removalDifficulty, toolsNeeded[], safetyNotes[], relatedTeardowns[]` |
+| Teardown | `content/teardowns/*.mdx` | frontmatter `slug, title, systemId, partIds[], difficulty, timeEstimate, tools[], safety[], heroSlot?` + MDX body of `<Step>`s                                                         |
+| Quiz     | `content/quizzes/*.json`  | `systemId, questions[{ prompt, options[], answerIndex, explanation, partId? }]`                                                                                                        |
+| Glossary | `content/glossary.json`   | `[{ id, term, aka[], definition, partId? }]`                                                                                                                                           |
+| Hotspots | `content/hotspots.json`   | `[{ id, x, y }]` in the car diagram's SVG coordinates                                                                                                                                  |
 
 **Cross-reference checks** (in `content.ts`):
 
 - `system.partIds` and `part.systemId` agree both ways.
-- `system.heroSlot` and `teardown.heroSlot` exist in the asset manifest.
+- `system.heroSlot`, `part.heroSlot` and `teardown.heroSlot` exist in the asset
+  manifest.
 - `part.location` exists in `hotspots.json`.
 - `part.connectsTo`, `part.relatedTeardowns`, `teardown.partIds`,
   `quiz.questions[].partId` all point at real ids.
@@ -199,6 +201,7 @@ Rules the code follows:
 | `workshop-ambient-loop`     | `/teardowns` header and each teardown header (default `heroSlot`)                                                                                                                        |
 | `teardown-intro-transition` | Plays once when the reader presses "Start the guide", then focus moves to the steps (skipped with reduced motion; in dev the placeholder flashes briefly so its position can be checked) |
 | `system-<id>-hero` (8)      | Each system page header and its card on `/systems`                                                                                                                                       |
+| `part-<id>-hero` (25)       | Beside the title on each part page, shown whole (16:9)                                                                                                                                   |
 | `og-image`                  | Open Graph / Twitter image in the root metadata (only once available)                                                                                                                    |
 
 Swapping in real media is: drop files at the manifest paths, set `status` to
@@ -241,12 +244,24 @@ fit, shortcuts such as `rod` and `box`), so the models can be unit tested
 without three.js.
 
 **ExplodedView** (client) shows one assembly, registered in
-`lib/assemblies/index.ts`. The brake corner is: hub with wheel studs, disc,
-caliper bracket, inner pad, outer pad, caliper. Each piece also has a removal
-order. Unit tests check the order (caliper → pads → bracket → disc, hub stays)
-and the positions (a pad on each face of the disc ring, the disc hat on the
-outboard face of the hub flange, the caliper over both pads). An ordered list
-beside the canvas gives the same information as text.
+`lib/assemblies/index.ts`. Each piece also has a removal order, and an ordered
+list beside the canvas gives the same information as text. The assemblies:
+
+| Id               | Shown on                    | Pieces                                                                                                                  |
+| ---------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `brake-corner`   | Brakes, brake part pages    | hub with wheel studs, disc, caliper bracket, inner pad, outer pad, caliper                                              |
+| `engine`         | Engine, engine part pages   | four-cylinder engine: plugs, valve cover, manifolds, timing belt, camshaft, head, gasket, pan, pistons, flywheel, crank |
+| `cylinder`       | Engine, spark plug page     | one cylinder, cut away: plug, head, valves, piston, rings, pin, rod, rod cap, crank                                     |
+| `drivetrain`     | Drivetrain, CV axle page    | engine, flywheel, clutch, gearbox, both CV axles, wheel hubs                                                            |
+| `clutch-gearbox` | Drivetrain, clutch, gearbox | flywheel, clutch disc, pressure plate, release bearing, case halves, both shafts with gears, selector forks, diff       |
+
+A system page shows every assembly that contains one of its parts, in registry
+order, so an overview comes before its close-up. A part page shows the last
+one that contains the part (`assemblyForPart`), which is the closest look at
+it. Unit tests check each assembly's order (for the brake corner: caliper →
+pads → bracket → disc, hub stays) and positions (a pad on each face of the
+disc ring, pistons inside the bores, every gear pair meshing, and so on).
+Cutaways use half-round lathes (`sweep`) and half outlines.
 
 **CarModelExplorer** (client, on `/car-3d/`) shows `whole-car.ts`: a
 front-engined, front-wheel-drive car with a piece for every part in the

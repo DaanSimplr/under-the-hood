@@ -69,6 +69,7 @@ the panel does not cover the subject.
 | Home hero (16:9, cropped to cover)     | left, vertically centred, ≤ 36 rem              | right 55% of frame, centred vertically    |
 | System / teardown headers (21:9, 16:9) | bottom-left, ≤ 42 rem                           | right half, upper two thirds              |
 | System cards on `/systems`             | image shown whole above the title               | subject must still read at ~400 px wide   |
+| Part pages (16:9, shown whole)         | none, the image sits beside the title           | centred, about half the frame height      |
 | Explorer background                    | whole frame, at 60% opacity, behind the diagram | no subject, even texture, no bright spots |
 | `og-image`                             | title added in code on the left                 | left 45% dark and empty, subject right    |
 
@@ -91,6 +92,7 @@ be calm and dark. Keep important detail out of the outer 8%.
 | `system-cooling-hero`       | Radiator fins and hoses, cool tones, light mist                                                                                                          |
 | `system-fuel-exhaust-hero`  | Exhaust pipe and silencer from below, warm light                                                                                                         |
 | `system-body-chassis-hero`  | Bare unpainted body shell on a stand, clean overhead light                                                                                               |
+| `part-<id>-hero` (25)       | The part alone on a low dark plinth, like a museum exhibit                                                                                               |
 | `og-image`                  | Crop/variant of the approved home hero still, subject right                                                                                              |
 
 ## Prompt template
@@ -120,21 +122,20 @@ flares, and close-ups precise enough to read as a technical reference.
 
 ## Models
 
-Used for the first full set (10-credit trial budget, see
-[prompt-log.md](./prompt-log.md)):
+Details per slot are in [prompt-log.md](./prompt-log.md).
 
-- **Stills:** Soul Cinema, 2k, text-to-image, no reference image. 16:9 comes
-  out at 2048x1152 and 21:9 at 2528x1088. System heroes run as one batch with
-  the same style block.
-- **Video:** only `home-hero-loop` is generated: Seedance 2.0 Mini, 6 s, 720p,
-  `generate_audio: false`, the approved still as both `start_image` and
-  `end_image`, upscaled to 1080p at encode. The other three video slots are
-  built from their stills with ffmpeg (zoom breathing, moving light, panel
-  split).
-- **With a larger budget:** Nano Banana Pro at 2k for stills and Seedance 2.0
-  `std` at 1080p for video, as first planned.
-- **Grade:** Soul Cinema renders this look very dark, so every file gets a
-  linear lift in post (about `x1.2 + 5`).
+- **Stills:** Nano Banana Pro, 2k, text-to-image, no reference image. 16:9
+  comes out at 2752x1536 and 21:9 at 3168x1344. No grade needed.
+- **Video:** Seedance 2.0 `std`, `generate_audio: false`, the approved
+  still as `start_image` and, for loops, also as `end_image`. The takes so
+  far came back at 720p and are upscaled at encode.
+- **Still on the first-pass model (Soul Cinema, 2k):** the stills behind the
+  four videos, `system-body-chassis-hero` and `og-image`. Soul Cinema
+  renders this look very dark, so those files get a linear lift in post
+  (about `x1.2 + 5`), and so do the videos made from them.
+- **Where to generate:** the free-trial unlimited generations work in Claude
+  chat, Cowork and ChatGPT, not from Claude Code. Results can be fetched from
+  the account by job id afterwards.
 
 ## Encoding settings
 

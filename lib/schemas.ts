@@ -51,6 +51,7 @@ export const partSchema = z.strictObject({
   whatItDoes: nonEmpty,
   howItWorks: nonEmpty,
   location: kebabId,
+  heroSlot: kebabId,
   connectsTo: z.array(kebabId),
   failureSymptoms: z.array(nonEmpty).min(1),
   removalDifficulty: difficultySchema,

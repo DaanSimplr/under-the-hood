@@ -239,6 +239,8 @@ export function checkReferences(c: Content, slotIds: string[] = getSlotIds()): s
       issues.push(`part "${p.id}" is not listed in system "${p.systemId}".partIds`);
     if (!hotspotIds.has(p.location))
       issues.push(`part "${p.id}": location "${p.location}" is not in hotspots.json`);
+    if (!slots.has(p.heroSlot))
+      issues.push(`part "${p.id}": heroSlot "${p.heroSlot}" is not in assets.json`);
     for (const id of p.connectsTo) {
       if (id === p.id) issues.push(`part "${p.id}": connectsTo itself`);
       else if (!partIds.has(id)) issues.push(`part "${p.id}": connectsTo unknown part "${id}"`);

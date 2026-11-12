@@ -7,6 +7,7 @@
   "whatItDoes": "Pads provide the friction that slows the car. They are the brake part you will replace most often.",
   "howItWorks": "Each pad is a steel backing plate with a block of friction material bonded to it. The caliper pushes one pad against each face of the disc. Many pads have a small metal tab or an electrical sensor that warns you when the friction material is getting thin.",
   "location": "brake-pads",
+  "heroSlot": "part-brake-pads-hero",
   "connectsTo": ["brake-caliper", "brake-disc"],
   "failureSymptoms": [
     "High-pitched squeal from the wear indicator",

@@ -35,6 +35,11 @@ export type Shape = Placement &
         profile: Vec2[];
         /** Blend the corners of the profile (tyres, boots). Default: sharp corners. */
         smooth?: boolean;
+        /**
+         * Sweep only part of the way round, for cutaways: [start, length] in
+         * degrees. Before rotation, 0 points along +Z and 90 along +X.
+         */
+        sweep?: Vec2;
       }
     | {
         kind: "extrude";

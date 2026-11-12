@@ -7,6 +7,7 @@
   "whatItDoes": "The valves that let air in and exhaust out must open at exactly the right moment compared to the pistons. The timing belt links the crankshaft at the bottom of the engine to the camshafts at the top so they always stay in sync.",
   "howItWorks": "Teeth on the belt mesh with toothed pulleys on the crankshaft and camshafts. In a four-stroke engine the camshafts turn at half the crankshaft's speed. A tensioner keeps the belt tight. On many engines the same belt also drives the water pump.",
   "location": "timing-belt",
+  "heroSlot": "part-timing-belt-hero",
   "connectsTo": ["engine-block", "water-pump"],
   "failureSymptoms": [
     "Ticking or whining from the end of the engine where the belt runs",

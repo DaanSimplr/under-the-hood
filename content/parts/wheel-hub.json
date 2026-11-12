@@ -7,6 +7,7 @@
   "whatItDoes": "It lets the wheel spin freely while carrying the car's weight and the forces of cornering and braking.",
   "howItWorks": "A sealed bearing (rows of steel balls or rollers) sits between the fixed knuckle and the turning hub flange. Wheel studs pass through the flange: the brake disc slips over them, then the wheel. On driven wheels the CV axle passes through the middle of the hub. Many cars also put the ABS wheel-speed sensor here.",
   "location": "wheel-hub",
+  "heroSlot": "part-wheel-hub-hero",
   "connectsTo": ["brake-disc", "brake-caliper", "cv-axle", "strut", "control-arm", "steering-rack"],
   "failureSymptoms": [
     "Humming or growling that gets louder with speed and changes when you turn",
