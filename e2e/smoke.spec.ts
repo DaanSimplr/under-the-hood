@@ -54,6 +54,16 @@ test.describe("pages", () => {
     await expect(page.locator('[data-media-slot="workshop-ambient-loop"]')).toBeVisible();
   });
 
+  test("teardowns index draws the exploded engine behind the header", async ({ page }) => {
+    const errors = watchErrors(page);
+    await page.goto("/teardowns/");
+    await expect(page.getByRole("heading", { level: 1, name: "Teardown guides" })).toBeVisible();
+    const backdrop = page.locator("[data-engine-backdrop] svg");
+    await expect(backdrop).toHaveAttribute("aria-hidden", "true");
+    await expect(backdrop.locator('[data-engine-part="pistons"]')).toHaveCount(4);
+    expect(errors).toEqual([]);
+  });
+
   test("unknown routes show the 404 page", async ({ page }) => {
     const res = await page.goto("/parts/flux-capacitor/");
     expect(res?.status()).toBe(404);
@@ -223,6 +233,7 @@ test.describe("accessibility", () => {
     "/",
     "/systems/brakes/",
     "/parts/alternator/",
+    "/teardowns/",
     "/teardowns/replace-front-brake-pads/",
     "/explorer/",
     "/car-3d/",
@@ -264,6 +275,7 @@ test.describe("mobile @mobile", () => {
     "/",
     "/systems/",
     "/parts/strut/",
+    "/teardowns/",
     "/teardowns/replace-front-brake-pads/",
     "/explorer/",
     "/car-3d/",

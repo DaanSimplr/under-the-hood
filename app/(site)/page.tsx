@@ -44,7 +44,7 @@ export default function HomePage() {
           <MediaSlot id="home-hero-loop" fill priority />
         </div>
         <Container className="py-12">
-          <div className="max-w-xl rounded-card bg-bg/90 p-6 shadow-sm backdrop-blur-sm sm:p-8">
+          <div className="max-w-xl rounded-card border border-border bg-surface p-6 shadow-sm sm:p-8">
             <p className="text-sm font-semibold tracking-wide text-accent uppercase">
               Cars, from the inside out
             </p>

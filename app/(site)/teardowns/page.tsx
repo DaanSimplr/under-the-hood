@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EngineBackdrop } from "@/components/diagram/EngineBackdrop";
 import { DifficultyBadge } from "@/components/lesson/lesson";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
@@ -15,7 +16,11 @@ export default function TeardownsPage() {
   const guides = getTeardowns();
   return (
     <>
-      <PageHero slotId="workshop-ambient-loop" title="Teardown guides">
+      <PageHero
+        background={<EngineBackdrop />}
+        title="Teardown guides"
+        minHeight="min-h-[30rem] sm:min-h-[32rem] lg:min-h-[36rem]"
+      >
         Step-by-step jobs with the tools you need, the safety checks to make, and a diagram for each
         step. Every car is different: read along with your service manual.
       </PageHero>

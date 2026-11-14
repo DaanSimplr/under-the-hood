@@ -17,7 +17,7 @@ export default function ExplorerPage() {
         <MediaSlot id="explorer-bg-loop" fill priority />
       </div>
       <Container className="py-10">
-        <div className="max-w-2xl rounded-card bg-bg/85 p-4 backdrop-blur-sm">
+        <div className="max-w-2xl rounded-card border border-border bg-surface p-4 shadow-sm">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Car explorer</h1>
           <p className="mt-3 text-lg text-muted">
             A schematic side view of a typical front-engined car. Select a part to learn what it

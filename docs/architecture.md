@@ -79,7 +79,8 @@ and the App Router gives that with less glue.
   diagram/  CarDrawing (pure SVG), CarExplorer, PartHotspot, DiagramFocus,
             SystemDiagrams, ExplodedView + CarModelExplorer (client shells),
             ModelStage (shared frame and controls), ExplodedViewCanvas (lazy R3F chunk),
-            shapeGeometry (model shapes to three.js geometry)
+            shapeGeometry (model shapes to three.js geometry),
+            EngineBackdrop (animated isometric engine behind the /teardowns header)
   lesson/   lesson.tsx: StepCard, ToolList, SafetyCallout, DifficultyBadge, TorqueSpec, Term
             GlossaryText (auto glossary links), mdxComponents (Step + MDX mapping)
   quiz/     QuizRunner, QuestionCard
@@ -98,6 +99,8 @@ and the App Router gives that with less glue.
   glossary.ts  links glossary terms inside plain text
   safety.ts    standard safety callout texts
   diagram.ts   diagram geometry, connection map, plain-language locations
+  engine-drawing.ts  isometric exploded engine for EngineBackdrop (3D shapes → SVG paths)
+  engine-motion.ts   timing of the EngineBackdrop loop
   quiz.ts      scoring helpers
   assemblies/  data for the 3D views: brake-corner, engine, cylinder, drivetrain,
                clutch-gearbox, whole-car (+ car-body, its skin),
@@ -197,7 +200,7 @@ Rules the code follows:
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `home-hero-loop`            | Home hero background                                                                                                                                                                     |
 | `explorer-bg-loop`          | Behind the car diagram on `/explorer`                                                                                                                                                    |
-| `workshop-ambient-loop`     | `/teardowns` header and each teardown header (default `heroSlot`)                                                                                                                        |
+| `workshop-ambient-loop`     | Each teardown header (default `heroSlot`). The `/teardowns` header shows the code-drawn `EngineBackdrop` instead                                                                         |
 | `teardown-intro-transition` | Plays once when the reader presses "Start the guide", then focus moves to the steps (skipped with reduced motion; in dev the placeholder flashes briefly so its position can be checked) |
 | `system-<id>-hero` (8)      | Each system page header and its card on `/systems`                                                                                                                                       |
 | `part-<id>-hero` (25)       | Beside the title on each part page, shown whole (16:9)                                                                                                                                   |
@@ -273,6 +276,20 @@ check that every content part has a piece in the right system. The whole-car
 model is imported only by this page. It is not in the assembly registry, so it
 does not appear on part or system pages.
 
+**EngineBackdrop** (client) is the decorative background of the `/teardowns`
+header (`PageHero` takes it as `background` instead of a `slotId`). It is a
+blueprint-style isometric drawing of an inline-4 engine and gearbox that comes
+apart in workshop order and goes back together on a loop. `lib/engine-drawing.ts`
+builds it from simple 3D shapes (boxes, cylinders, extruded outlines, bent
+pipes) and projects them with true 30° isometric math, so every ellipse and
+travel line is consistent. Pistons are clipped to their bores, so they rise out
+of the cylinders. Colours are the `--bp-*` tokens, so it follows the theme. It
+has no labels and is `aria-hidden`. The loop (`lib/engine-motion.ts`) runs only
+while the header is on screen. With reduced motion it shows the exploded state,
+still. The geometry is built in the browser from a chunk loaded after
+hydration: as static HTML its path data added about 140 KB (gzipped) to the
+page.
+
 Both use **ModelStage** and **ExplodedViewCanvas**:
 
 - A slider (0–100%) and Assemble/Explode buttons move pieces along their
@@ -335,8 +352,9 @@ dialog (Ctrl/⌘ K or `/`) fetches the file on first open and runs
 
 - Tokens live in `app/globals.css` as CSS variables (`--bg`, `--fg`,
   `--muted`, `--accent`, `--surface`, `--border`, `--focus`, and one
-  `--sys-<id>` per system, and one `--model-<tone>` per 3D material). They are
-  mapped into Tailwind with `@theme`.
+  `--sys-<id>` per system, one `--model-<tone>` per 3D material, and the
+  `--bp-*` blueprint colours of EngineBackdrop). They are mapped into Tailwind
+  with `@theme`.
 - Dark mode: `data-theme="light|dark"` on `<html>`. A tiny inline script sets
   it before paint, from the saved choice or `prefers-color-scheme`.
 - Focus: a 3px `--focus` outline on every interactive element.
@@ -372,8 +390,9 @@ same page scores about 81.
 
 - **Vitest** (`tests/`): content validation and cross-refs, asset resolution
   (placeholder rules, unknown ids), progress reducers, quiz scoring, search,
-  glossary linking, aspect parsing, assembly order, 3D model geometry and the
-  whole-car model.
+  glossary linking, aspect parsing, assembly order, 3D model geometry, the
+  whole-car model, and the exploded engine backdrop (isometric axes, workshop
+  order, pistons in their bores, colours only from tokens, loop timing).
 - **Playwright** (`e2e/`): runs against the static export (`out/`) on a small
   Node static server. It covers home, systems, a part page, a teardown, the
   explorer (mouse and keyboard), the 3D car, a quiz, search, the theme toggle, and no

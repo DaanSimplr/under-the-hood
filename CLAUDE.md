@@ -1,3 +1,5 @@
+Always address the user as "Daan"
+
 # Project context: Under the Hood
 
 This file is standing background about the project. It is not a task. The

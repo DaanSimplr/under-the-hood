@@ -2,18 +2,19 @@ import { MediaSlot } from "@/components/media/MediaSlot";
 import { Container } from "./Container";
 
 /**
- * Page header with a decorative media slot behind the title. Text sits on a
- * solid scrim so contrast never depends on the media.
+ * Page header with a decorative background behind the title: a media slot,
+ * or a drawing passed as `background`. Text sits on a solid surface card so
+ * contrast never depends on what is behind it.
  */
 export function PageHero({
   slotId,
+  background,
   title,
   children,
   eyebrow,
   priority = true,
   minHeight = "min-h-[16rem] sm:min-h-[20rem]",
-}: {
-  slotId: string;
+}: ({ slotId: string; background?: never } | { background: React.ReactNode; slotId?: never }) & {
   title: React.ReactNode;
   children?: React.ReactNode;
   eyebrow?: React.ReactNode;
@@ -25,10 +26,10 @@ export function PageHero({
       className={`relative isolate flex items-end overflow-hidden border-b border-border ${minHeight}`}
     >
       <div className="absolute inset-0 -z-10">
-        <MediaSlot id={slotId} fill priority={priority} />
+        {slotId ? <MediaSlot id={slotId} fill priority={priority} /> : background}
       </div>
       <Container className="py-8 sm:py-10">
-        <div className="max-w-2xl rounded-card bg-bg/90 p-5 shadow-sm backdrop-blur-sm sm:p-6">
+        <div className="max-w-2xl rounded-card border border-border bg-surface p-5 shadow-sm sm:p-6">
           {eyebrow && <div className="mb-2">{eyebrow}</div>}
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
           {children && <div className="mt-3 text-base text-muted sm:text-lg">{children}</div>}

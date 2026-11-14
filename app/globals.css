@@ -51,6 +51,25 @@
   --model-glass: #a9cbe0;
   --model-lamp: #f1f3f5;
 
+  /* Blueprint drawing (exploded engine backdrop on /teardowns). Each
+     material shades from its -lo (away from the light) to its -hi token. */
+  --bp-ink: #222426;
+  --bp-guide: #7a8b9c;
+  --bp-grid-minor: #e2e9f0;
+  --bp-grid-major: #cbd7e4;
+  --bp-alu-lo: #b3b5b7;
+  --bp-alu-hi: #fdfcf9;
+  --bp-iron-lo: #9a9da1;
+  --bp-iron-hi: #eceae4;
+  --bp-steel-lo: #858990;
+  --bp-steel-hi: #e6e8ea;
+  --bp-dark-lo: #45484d;
+  --bp-dark-hi: #a2a5aa;
+  --bp-rust-lo: #9c3812;
+  --bp-rust-hi: #f2a584;
+  --bp-paper-lo: #dcdad3;
+  --bp-paper-hi: #ffffff;
+
   --radius: 0.75rem;
   color-scheme: light;
 }
@@ -85,6 +104,22 @@
     --sys-cooling: #60a5fa;
     --sys-fuel-exhaust: #a8a29e;
     --sys-body-chassis: #f472b6;
+    --bp-ink: #d3d8e0;
+    --bp-guide: #5d6b7c;
+    --bp-grid-minor: #171c25;
+    --bp-grid-major: #222a37;
+    --bp-alu-lo: #3a3f48;
+    --bp-alu-hi: #8e95a0;
+    --bp-iron-lo: #33373e;
+    --bp-iron-hi: #7d838c;
+    --bp-steel-lo: #2e333b;
+    --bp-steel-hi: #878e99;
+    --bp-dark-lo: #15171b;
+    --bp-dark-hi: #4a4f58;
+    --bp-rust-lo: #6e2a10;
+    --bp-rust-hi: #e07a4e;
+    --bp-paper-lo: #2a2f38;
+    --bp-paper-hi: #5a616c;
     color-scheme: dark;
   }
 }
@@ -117,6 +152,22 @@
   --sys-cooling: #60a5fa;
   --sys-fuel-exhaust: #a8a29e;
   --sys-body-chassis: #f472b6;
+  --bp-ink: #d3d8e0;
+  --bp-guide: #5d6b7c;
+  --bp-grid-minor: #171c25;
+  --bp-grid-major: #222a37;
+  --bp-alu-lo: #3a3f48;
+  --bp-alu-hi: #8e95a0;
+  --bp-iron-lo: #33373e;
+  --bp-iron-hi: #7d838c;
+  --bp-steel-lo: #2e333b;
+  --bp-steel-hi: #878e99;
+  --bp-dark-lo: #15171b;
+  --bp-dark-hi: #4a4f58;
+  --bp-rust-lo: #6e2a10;
+  --bp-rust-hi: #e07a4e;
+  --bp-paper-lo: #2a2f38;
+  --bp-paper-hi: #5a616c;
   color-scheme: dark;
 }
 
@@ -200,6 +251,21 @@
   }
   .term-link:hover {
     color: var(--accent);
+  }
+
+  /* Drafting paper: 20px minor and 100px major grid. */
+  .blueprint-grid {
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--bp-grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bp-grid-major) 1px, transparent 1px),
+      linear-gradient(var(--bp-grid-minor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bp-grid-minor) 1px, transparent 1px);
+    background-size:
+      100px 100px,
+      100px 100px,
+      20px 20px,
+      20px 20px;
   }
 }
 
