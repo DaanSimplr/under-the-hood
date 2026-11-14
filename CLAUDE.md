@@ -1,4 +1,4 @@
-Always address the user as "Daan"
+Always address the user as "Daan".
 
 # Project context: Under the Hood
 

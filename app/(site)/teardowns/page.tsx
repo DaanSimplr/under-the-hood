@@ -19,7 +19,11 @@ export default function TeardownsPage() {
       <PageHero
         background={<EngineBackdrop />}
         title="Teardown guides"
-        minHeight="min-h-[30rem] sm:min-h-[32rem] lg:min-h-[36rem]"
+        minHeight="min-h-[28rem] lg:min-h-[27rem]"
+        // Side by side on wide screens: centre the card next to the engine,
+        // and keep it narrow enough to leave room for it.
+        align="items-end lg:items-center"
+        cardWidth="max-w-2xl lg:max-w-lg xl:max-w-2xl"
       >
         Step-by-step jobs with the tools you need, the safety checks to make, and a diagram for each
         step. Every car is different: read along with your service manual.

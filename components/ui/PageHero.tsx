@@ -14,22 +14,30 @@ export function PageHero({
   eyebrow,
   priority = true,
   minHeight = "min-h-[16rem] sm:min-h-[20rem]",
+  align = "items-end",
+  cardWidth = "max-w-2xl",
 }: ({ slotId: string; background?: never } | { background: React.ReactNode; slotId?: never }) & {
   title: React.ReactNode;
   children?: React.ReactNode;
   eyebrow?: React.ReactNode;
   priority?: boolean;
   minHeight?: string;
+  /** Vertical placement of the title card (flex `items-*` classes). */
+  align?: string;
+  /** Maximum width of the title card (`max-w-*` classes). */
+  cardWidth?: string;
 }) {
   return (
     <section
-      className={`relative isolate flex items-end overflow-hidden border-b border-border ${minHeight}`}
+      className={`relative isolate flex overflow-hidden border-b border-border ${align} ${minHeight}`}
     >
       <div className="absolute inset-0 -z-10">
         {slotId ? <MediaSlot id={slotId} fill priority={priority} /> : background}
       </div>
       <Container className="py-8 sm:py-10">
-        <div className="max-w-2xl rounded-card border border-border bg-surface p-5 shadow-sm sm:p-6">
+        <div
+          className={`${cardWidth} rounded-card border border-border bg-surface p-5 shadow-sm sm:p-6`}
+        >
           {eyebrow && <div className="mb-2">{eyebrow}</div>}
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
           {children && <div className="mt-3 text-base text-muted sm:text-lg">{children}</div>}

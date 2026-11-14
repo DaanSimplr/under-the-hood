@@ -109,7 +109,10 @@ export function EngineBackdrop({ className }: { className?: string }) {
       <div
         ref={ref}
         className={cn(
-          "absolute inset-x-3 top-3 bottom-[42%] transition-opacity duration-700 sm:bottom-[36%] lg:inset-y-6 lg:right-6 lg:left-auto lg:w-[52%]",
+          // Narrow screens: above the /teardowns title card (about 14rem tall).
+          // Wide screens: beside it, 120px past the right edge of the content column
+          // (Container: max-w-6xl, px-6), but never closer than 0.75rem to the window edge.
+          "absolute inset-x-3 top-3 bottom-[14.5rem] transition-opacity duration-700 sm:bottom-[15rem] lg:inset-y-2 lg:right-[max(0.75rem,calc((100%-72rem)/2+1.5rem-120px))] lg:left-auto lg:w-[52%]",
           drawing ? "opacity-100" : "opacity-0",
         )}
       >
