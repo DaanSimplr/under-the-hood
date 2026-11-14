@@ -4,8 +4,7 @@ A static learning site about car parts, car systems, and how cars are taken
 apart and put back together. It is aimed at curious beginners and hobbyists.
 
 This document describes how the app is put together and why. For how to add
-content, see [content-guide.md](./content-guide.md). For the look of the
-generated media, see [style-brief.md](./style-brief.md).
+content, see [content-guide.md](./content-guide.md).
 
 ---
 
@@ -389,7 +388,7 @@ same page scores about 81.
 3. MediaSlot + wire every manifest slot.
 4. CarExplorer (SVG) + ExplodedView (brake corner).
 5. Progress store, search, quiz runner.
-6. Docs: this file, `content-guide.md`, stub `style-brief.md`.
+6. Docs: this file, `content-guide.md`.
 7. Tests + green `npm run build`.
 
 Each step is one git commit.

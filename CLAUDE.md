@@ -38,8 +38,7 @@ makes either one inaccurate, update it in the same change.
   the content files, and the content guide together.
 - **Media goes only through `<MediaSlot id>` and `public/media/assets.json`.**
   Never hard-code a media path, and never rename or remove a slot id.
-  `docs/style-brief.md`, `docs/prompt-log.md` and the files under
-  `public/media` belong to a separate media agent; leave them alone unless
+  The files under `public/media` belong to a separate media agent; leave them alone unless
   asked.
 - **Colours come from the tokens in `app/globals.css`** (light and dark), used
   through Tailwind classes or `var()`. No new raw hex values in components.

@@ -35,7 +35,6 @@ npm run test:e2e       # Playwright smoke tests (builds and serves ./out)
 
 - [docs/architecture.md](docs/architecture.md): how it fits together
 - [docs/content-guide.md](docs/content-guide.md): how to add a part, guide, quiz or term
-- [docs/style-brief.md](docs/style-brief.md): look of the generated media (filled in by the media agent)
 
 ## Media
 
