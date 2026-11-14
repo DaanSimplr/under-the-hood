@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { cache as perRender } from "react";
 import type { z } from "zod";
 import { getSlotIds } from "./assets";
 import { ASSEMBLY_IDS } from "./assemblies";
@@ -302,9 +303,12 @@ export function checkReferences(c: Content, slotIds: string[] = getSlotIds()): s
 
 let cache: Content | null = null;
 
+/** In dev, load once per render (not once per lookup) so edits still show on refresh. */
+const loadPerRender = perRender(loadContent);
+
 export function getContent(): Content {
-  if (cache && process.env.NODE_ENV !== "development") return cache;
-  cache = loadContent();
+  if (process.env.NODE_ENV === "development") return loadPerRender();
+  cache ??= loadContent();
   return cache;
 }
 
