@@ -1,4 +1,4 @@
-Always address the user as "Daan".
+Address the user with Daan somewhere in every response.
 
 # Project context: Under the Hood
 
